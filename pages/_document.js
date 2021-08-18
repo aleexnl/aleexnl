@@ -7,7 +7,7 @@ import createEmotionCache from "lib/createEmotionCache";
 export default class MyDocument extends Document {
     render() {
         return (
-            <Html lang="es">
+            <Html>
                 <Head>
                     {/* PWA primary color */}
                     <meta
