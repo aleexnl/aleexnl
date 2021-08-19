@@ -9,7 +9,7 @@ import {
     Box,
     IconButton,
     List,
-    Drawer,
+    SwipeableDrawer,
     Avatar,
     Divider,
 } from "@material-ui/core";
@@ -51,7 +51,13 @@ const links = [
 export default function Layout({ children }) {
     const router = useRouter();
     const [open, setOpen] = React.useState(false);
+    /**
+     * Handles Opening the drawer
+     */
     const handleOpen = () => setOpen(true);
+    /**
+     * Handles Closing the drawer
+     */
     const handleClose = () => setOpen(false);
 
     return (
@@ -64,7 +70,7 @@ export default function Layout({ children }) {
                     <Typography component="h1" variant="h5" fontWeight={400}>
                         Aleexnl&apos;s portfolio
                     </Typography>
-                    <Drawer
+                    <SwipeableDrawer
                         keepMounted={true}
                         open={open}
                         onClose={handleClose}
@@ -97,7 +103,7 @@ export default function Layout({ children }) {
                                 );
                             })}
                         </List>
-                    </Drawer>
+                    </SwipeableDrawer>
                 </Toolbar>
             </AppBar>
             <Box
@@ -107,6 +113,7 @@ export default function Layout({ children }) {
                 display="flex"
                 flexDirection="column"
                 p={3}
+                overflow="auto"
             >
                 {children}
             </Box>
