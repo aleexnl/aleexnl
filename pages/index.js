@@ -12,6 +12,15 @@ export default function Home() {
                     content="Aleexnl's Web Developer portfolio home page."
                 />
                 <link rel="canonical" href="https://aleexnl.vercel.app/" />
+                <meta property="og:url" content="https://aleexnl.vercel.app/" />
+                <meta
+                    property="og:title"
+                    content="Aleexnl's Official Portfolio"
+                />
+                <meta
+                    property="og:description"
+                    content="Welcome to my official portfoli, where you'll be able to get a brief idea of who am I, experience & some projects."
+                />
             </Head>
             <Typography variant="h2" component="h1">
                 Home

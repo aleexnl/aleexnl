@@ -12,6 +12,15 @@ export default function About() {
                     content="About my career, experience, objectives & projects in mind."
                 />
                 <link rel="canonical" href="https://aleexnl.vercel.app/about" />
+                <meta
+                    property="og:url"
+                    content="https://aleexnl.vercel.app/about"
+                />
+                <meta property="og:title" content="Who I am? About Aleexnl" />
+                <meta
+                    property="og:description"
+                    content="I'm a young Web Developer with a desire of learn new things & face new challenges. "
+                />
             </Head>
             <Typography variant="h2" component="h1">
                 About

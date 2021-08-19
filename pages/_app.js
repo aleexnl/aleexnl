@@ -23,6 +23,10 @@ function MyApp({
                     name="viewport"
                     content="initial-scale=1, width=device-width"
                 />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:site" content="@aleexnl" />
+                <meta name="twitter:creator" content="@aleexnl" />
+                <meta property="og:image" content="/logo.png" />
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
