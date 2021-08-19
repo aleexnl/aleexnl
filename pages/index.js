@@ -11,6 +11,7 @@ export default function Home() {
                     name="description"
                     content="Aleexnl's Web Developer portfolio home page."
                 />
+                <link rel="canonical" href="https://aleexnl.vercel.app/" />
             </Head>
             <Typography variant="h2" component="h1">
                 Home
