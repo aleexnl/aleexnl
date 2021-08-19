@@ -19,7 +19,6 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import "@fontsource/catamaran";
 import Head from "next/head";
 
 export default function Contact() {
@@ -60,7 +59,7 @@ export default function Contact() {
                     content="Need a Web Developer? Don not doubt to contact aleexnl."
                 />
             </Head>
-            <Typography variant="h2" component="h1" fontFamily="Catamaran">
+            <Typography variant="h2" component="h1">
                 Contact
             </Typography>
             <Divider sx={{ my: 0.5 }} />
@@ -72,7 +71,7 @@ export default function Contact() {
                 sx={{ display: "flex", flexDirection: "column", my: 2, p: 2 }}
                 component="form"
             >
-                <Typography gutterBottom fontWeight={600} component="h2">
+                <Typography gutterBottom fontWeight={700} component="h2">
                     Contact me!
                 </Typography>
                 <TextField
