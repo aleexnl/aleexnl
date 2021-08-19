@@ -7,6 +7,10 @@ export default function Home() {
         <>
             <Head>
                 <title>Home</title>
+                <meta
+                    name="description"
+                    content="Aleexnl's Web Developer portfolio home page."
+                />
             </Head>
             <Typography variant="h2" component="h1">
                 Home

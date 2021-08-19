@@ -6,7 +6,7 @@ import {
     Divider,
     TextField,
     InputAdornment,
-    Button,
+    IconButton,
 } from "@material-ui/core";
 import LoadingButton from "@material-ui/lab/LoadingButton";
 // Assets
@@ -55,19 +55,26 @@ export default function Contact() {
         <>
             <Head>
                 <title>Contact</title>
+                <meta
+                    name="description"
+                    content="Need a Web Developer? Don not doubt to contact aleexnl."
+                />
             </Head>
             <Typography variant="h2" component="h1" fontFamily="Catamaran">
                 Contact
             </Typography>
             <Divider sx={{ my: 0.5 }} />
             <Typography gutterBottom variant="body1">
-                Need a hand? Or a high five? <strong>Contact me!</strong>
+                Need a hand? Or a high five?
             </Typography>
             <Paper
                 elevation={1}
                 sx={{ display: "flex", flexDirection: "column", my: 2, p: 2 }}
                 component="form"
             >
+                <Typography gutterBottom fontWeight={600} component="h2">
+                    Contact me!
+                </Typography>
                 <TextField
                     id="contact-user-name"
                     type="text"
@@ -130,7 +137,7 @@ export default function Contact() {
                     }}
                 />
                 <LoadingButton
-                    endIcon={<SendIcon />}
+                    startIcon={<SendIcon />}
                     disabled={!name || !email || !message}
                     sx={{ my: 1 }}
                     loading={sending}
@@ -142,61 +149,52 @@ export default function Contact() {
                 </LoadingButton>
             </Paper>
 
-            <Typography gutterBottom variant="body1">
+            <Typography variant="body1" textAlign="center" gutterBottom>
                 You can also <strong>find me</strong> in social media!
             </Typography>
             <Paper
-                elevation={1}
+                elevation={0}
                 sx={{
                     display: "flex",
-                    flexDirection: "column",
-                    my: 2,
-                    p: 2,
+                    alignItems: "center",
+                    justifyContent: "space-between",
                 }}
             >
-                <Button
-                    startIcon={<InstagramIcon />}
-                    sx={{ my: 0.5, bgcolor: "#d22f7b" }}
+                <IconButton
+                    aria-label="Instagram"
                     href="https://www.instagram.com/aleexnl/"
                     target="__blank"
                 >
-                    Instagram
-                </Button>
-                <Button
-                    startIcon={<LinkedInIcon />}
-                    sx={{ my: 0.5 }}
+                    <InstagramIcon />
+                </IconButton>
+                <IconButton
+                    aria-label="LinkedIn"
                     href="https://www.linkedin.com/in/alejandro-nieto-luque/"
                     target="__blank"
                 >
-                    LinkedIn
-                </Button>
-                <Button
-                    startIcon={<GitHubIcon />}
-                    sx={{ my: 0.5, bgcolor: "#24292e" }}
+                    <LinkedInIcon />
+                </IconButton>
+                <IconButton
+                    aria-label="GitHub"
                     href="https://github.com/aleexnl"
                     target="__blank"
                 >
-                    Git Hub
-                </Button>
-                <Button
-                    startIcon={<AlternateEmailIcon />}
-                    sx={{ my: 0.5, bgcolor: "#ea4335" }}
+                    <GitHubIcon />
+                </IconButton>
+                <IconButton
+                    aria-label="E-Mail"
                     href="mailto:alex.nieto0027@gmail.com"
                     target="__blank"
                 >
-                    Mail
-                </Button>
-                <Button
-                    startIcon={<WhatsAppIcon />}
-                    sx={{ my: 0.5, bgcolor: "#37bfa5" }}
+                    <AlternateEmailIcon />
+                </IconButton>
+                <IconButton
+                    aria-label="WhatsApp"
                     href="sms:679365974"
                     target="__blank"
                 >
-                    WhatsApp
-                </Button>
-                <Typography variant="caption" color="textSecondary">
-                    Monday-Friday 09:00 to 21:00 (GMT+2)
-                </Typography>
+                    <WhatsAppIcon />
+                </IconButton>
             </Paper>
         </>
     );

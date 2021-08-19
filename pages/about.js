@@ -7,6 +7,10 @@ export default function About() {
         <>
             <Head>
                 <title>About</title>
+                <meta
+                    name="description"
+                    content="About my career, experience, objectives & projects in mind."
+                />
             </Head>
             <Typography variant="h2" component="h1">
                 About
