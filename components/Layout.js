@@ -6,7 +6,7 @@ import Image from "next/image";
 import {
     AppBar,
     Box,
-    Typography,
+    Link,
     Toolbar,
     IconButton,
     List,
@@ -64,13 +64,9 @@ export default function Layout({ children }) {
         <>
             <AppBar color="transparent" position="static">
                 <Toolbar>
-                    <IconButton onClick={handleOpen} aria-label="open menu">
-                        {open ? <MenuOpenIcon /> : <MenuIcon />}
-                    </IconButton>
-
-                    <Typography component="h1" variant="h5" fontWeight={400}>
-                        Aleexnl&apos;s portfolio
-                    </Typography>
+                    <Link variant="h4" underline="hover" href="/">
+                        Aleexnl
+                    </Link>
                     <SwipeableDrawer
                         keepMounted={true}
                         open={open}
@@ -109,6 +105,13 @@ export default function Layout({ children }) {
                             })}
                         </List>
                     </SwipeableDrawer>
+                    <IconButton
+                        onClick={handleOpen}
+                        aria-label="open menu"
+                        sx={{ ml: "auto" }}
+                    >
+                        {open ? <MenuOpenIcon /> : <MenuIcon />}
+                    </IconButton>
                 </Toolbar>
             </AppBar>
             <Box
@@ -122,13 +125,6 @@ export default function Layout({ children }) {
             >
                 {children}
             </Box>
-            {/*
-                <Box component="footer">
-                    <AppBar position="static" color="transparent">
-                        <Toolbar />
-                    </AppBar>
-                </Box>
-                 */}
         </>
     );
 }
