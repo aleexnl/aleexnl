@@ -64,43 +64,40 @@ export default function Layout({ children }) {
                     <Typography component="h1" variant="h5" fontWeight={400}>
                         Aleexnl&apos;s portfolio
                     </Typography>
-                    {open && (
-                        <Drawer
-                            open={open}
-                            onClose={handleClose}
-                            PaperProps={{ sx: { alignItems: "center" } }}
-                            component="nav"
+                    <Drawer
+                        keepMounted={true}
+                        open={open}
+                        onClose={handleClose}
+                        PaperProps={{ sx: { alignItems: "center" } }}
+                        component="nav"
+                    >
+                        <Avatar
+                            sx={{ my: 2 }}
+                            variant="rounded"
+                            alt="Aleexnl logo"
+                        />
+                        <Divider light flexItem />
+                        <List
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                px: 1,
+                            }}
                         >
-                            <Avatar
-                                sx={{ my: 2 }}
-                                variant="rounded"
-                                alt="Aleexnl logo"
-                            />
-                            <Divider light flexItem />
-                            <List
-                                sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    px: 2,
-                                }}
-                            >
-                                {links.map((link) => {
-                                    return (
-                                        <ListItemLink
-                                            key={link.id}
-                                            to={link.to}
-                                            selected={
-                                                link.to === router.pathname
-                                            }
-                                            label={link.name}
-                                        >
-                                            {link.icon}
-                                        </ListItemLink>
-                                    );
-                                })}
-                            </List>
-                        </Drawer>
-                    )}
+                            {links.map((link) => {
+                                return (
+                                    <ListItemLink
+                                        key={link.id}
+                                        to={link.to}
+                                        selected={link.to === router.pathname}
+                                        label={link.name}
+                                    >
+                                        {link.icon}
+                                    </ListItemLink>
+                                );
+                            })}
+                        </List>
+                    </Drawer>
                 </Toolbar>
             </AppBar>
             <Box
@@ -109,9 +106,17 @@ export default function Layout({ children }) {
                 width="100%"
                 display="flex"
                 flexDirection="column"
+                p={3}
             >
                 {children}
             </Box>
+            {/*
+                <Box component="footer">
+                    <AppBar position="static" color="transparent">
+                        <Toolbar />
+                    </AppBar>
+                </Box>
+                 */}
         </>
     );
 }
