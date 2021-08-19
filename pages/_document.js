@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <meta charset="UTF-8"></meta>
+                    <meta charSet="UTF-8"></meta>
                     {/* PWA primary color */}
                     <link
                         rel="apple-touch-icon"
