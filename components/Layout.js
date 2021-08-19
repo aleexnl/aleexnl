@@ -2,15 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 // Frameworks
 import { useRouter } from "next/router";
+import Image from "next/image";
 import {
     AppBar,
+    Box,
     Typography,
     Toolbar,
-    Box,
     IconButton,
     List,
     SwipeableDrawer,
-    Avatar,
     Divider,
 } from "@material-ui/core";
 // Assets
@@ -67,6 +67,7 @@ export default function Layout({ children }) {
                     <IconButton onClick={handleOpen} aria-label="open menu">
                         {open ? <MenuOpenIcon /> : <MenuIcon />}
                     </IconButton>
+
                     <Typography component="h1" variant="h5" fontWeight={400}>
                         Aleexnl&apos;s portfolio
                     </Typography>
@@ -78,11 +79,14 @@ export default function Layout({ children }) {
                         PaperProps={{ sx: { alignItems: "center" } }}
                         component="nav"
                     >
-                        <Avatar
-                            sx={{ my: 2 }}
-                            variant="rounded"
-                            alt="Aleexnl logo"
-                        />
+                        <Box p={2}>
+                            <Image
+                                src="/logo.png"
+                                width="75px"
+                                height="75px"
+                                alt="aleexnl's logo"
+                            />
+                        </Box>
                         <Divider light flexItem />
                         <List
                             sx={{

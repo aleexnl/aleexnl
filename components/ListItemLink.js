@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import NextLink from "next/link";
-import {
-    ListItemButton,
-    Link,
-    IconButton,
-    ListItemIcon,
-} from "@material-ui/core";
+import { useRouter } from "next/router";
+import { ListItemButton, Link, ListItemIcon } from "@material-ui/core";
 
 /**
  * Component used to render MaterialUI ListItemButton as Next/Link.
@@ -28,6 +24,7 @@ import {
  * )
  */
 export default function ListItemLink({ to, label, selected, children }) {
+    const router = useRouter();
     const CustomLink = React.useMemo(
         () =>
             React.forwardRef(function ComposedLink(props, ref) {
@@ -40,8 +37,15 @@ export default function ListItemLink({ to, label, selected, children }) {
             }),
         []
     );
+
+    const handleClick = () => router.push(to);
+
     return (
-        <ListItemButton selected={selected} sx={{ my: 0.2, borderRadius: 3 }}>
+        <ListItemButton
+            selected={selected}
+            sx={{ my: 0.2, borderRadius: 3 }}
+            onClick={handleClick}
+        >
             <ListItemIcon>{children}</ListItemIcon>
             <CustomLink to={to} label={label} />
         </ListItemButton>
