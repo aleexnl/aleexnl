@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 // Frameworks
 import { useRouter } from "next/router";
 import {
@@ -8,57 +9,98 @@ import {
     Box,
     IconButton,
     List,
-    ListItemText,
-    ListItemButton,
+    Drawer,
+    Avatar,
+    Divider,
 } from "@material-ui/core";
 // Assets
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
+import HomeIcon from "@material-ui/icons/Home";
+import InfoIcon from "@material-ui/icons/Info";
+import ConnectWithoutContactIcon from "@material-ui/icons/ConnectWithoutContact";
+// Custom
+import ListItemLink from "components/ListItemLink";
 
-const menuItems = [
-    { id: 1, name: "Home", to: "/" },
-    { id: 2, name: "About", to: "/about" },
+const links = [
+    { id: 1, name: "Home", to: "/", icon: <HomeIcon /> },
+    { id: 2, name: "About", to: "/about", icon: <InfoIcon /> },
+    {
+        id: 3,
+        name: "Contact",
+        to: "/contact",
+        icon: <ConnectWithoutContactIcon />,
+    },
 ];
 
-function Menu() {
-    const router = useRouter();
-    return (
-        <List sx={{ display: "flex" }}>
-            {menuItems.map((item) => {
-                return (
-                    <ListItemButton
-                        key={item.id}
-                        to={item.to}
-                        component={NextLink}
-                        selected={item.to === router.pathname}
-                    >
-                        <ListItemText sx={{ fontWeight: 700 }}>
-                            {item.name}
-                        </ListItemText>
-                    </ListItemButton>
-                );
-            })}
-        </List>
-    );
-}
-
+/**
+ * Layout of for the pages.
+ *
+ * @param {Object} props
+ * @param {JSX.Element} props.children The page you want to include Layout
+ *
+ * @component
+ *
+ * @example
+ * return (
+ *  <Layout>
+ *      <Home/>
+ *  </Layout>
+ * )
+ */
 export default function Layout({ children }) {
+    const router = useRouter();
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
         <>
             <AppBar color="transparent" position="static">
-                <Toolbar sx={{ justifyContent: "space-between" }}>
+                <Toolbar>
+                    <IconButton onClick={handleOpen}>
+                        {open ? <MenuOpenIcon /> : <MenuIcon />}
+                    </IconButton>
                     <Typography component="h1" variant="h5" fontWeight={400}>
-                        aleexnl&apos;s portfolio
+                        Aleexnl&apos;s portfolio
                     </Typography>
-                    <Box display="flex" component="nav">
-                        {open && <Menu />}
-                        <IconButton onClick={handleOpen}>
-                            {open ? <MenuOpenIcon /> : <MenuIcon />}
-                        </IconButton>
-                    </Box>
+                    {open && (
+                        <Drawer
+                            open={open}
+                            onClose={handleClose}
+                            PaperProps={{ sx: { alignItems: "center" } }}
+                            component="nav"
+                        >
+                            <Avatar
+                                sx={{ my: 2 }}
+                                variant="rounded"
+                                alt="Aleexnl logo"
+                            />
+                            <Divider light flexItem />
+                            <List
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    px: 2,
+                                }}
+                            >
+                                {links.map((link) => {
+                                    return (
+                                        <ListItemLink
+                                            key={link.id}
+                                            to={link.to}
+                                            selected={
+                                                link.to === router.pathname
+                                            }
+                                            label={link.name}
+                                        >
+                                            {link.icon}
+                                        </ListItemLink>
+                                    );
+                                })}
+                            </List>
+                        </Drawer>
+                    )}
                 </Toolbar>
             </AppBar>
             <Box
@@ -73,3 +115,10 @@ export default function Layout({ children }) {
         </>
     );
 }
+
+Layout.propTypes = {
+    /**
+     * Children elements
+     */
+    children: PropTypes.element.isRequired,
+};
