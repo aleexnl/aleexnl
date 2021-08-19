@@ -64,7 +64,7 @@ export default function Layout({ children }) {
         <>
             <AppBar color="transparent" position="static">
                 <Toolbar>
-                    <IconButton onClick={handleOpen}>
+                    <IconButton onClick={handleOpen} aria-label="open menu">
                         {open ? <MenuOpenIcon /> : <MenuIcon />}
                     </IconButton>
                     <Typography component="h1" variant="h5" fontWeight={400}>
@@ -73,6 +73,7 @@ export default function Layout({ children }) {
                     <SwipeableDrawer
                         keepMounted={true}
                         open={open}
+                        onOpen={handleOpen}
                         onClose={handleClose}
                         PaperProps={{ sx: { alignItems: "center" } }}
                         component="nav"
