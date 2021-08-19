@@ -18,7 +18,6 @@ function MyApp({
     return (
         <CacheProvider value={emotionCache}>
             <Head>
-                <title>Home</title>
                 <meta
                     name="viewport"
                     content="initial-scale=1, width=device-width"

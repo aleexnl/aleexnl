@@ -8,9 +8,9 @@ import { SitemapStream, streamToPromise } from "sitemap";
  */
 export default async function handler(req, res) {
     const links = [
-        { url: "/", changefreq: "daily", priority: 1 },
-        { url: "/about", changefreq: "daily", priority: 1 },
-        { url: "/contact", changefreq: "daily", priority: 1 },
+        { url: "/", changefreq: "hourly" },
+        { url: "/about", changefreq: "hourly" },
+        { url: "/contact", changefreq: "hourly" },
     ];
 
     const stream = new SitemapStream({
