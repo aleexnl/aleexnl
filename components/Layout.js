@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 // Frameworks
 import { useRouter } from "next/router";
 import NextLink from "next/link";
-import Image from "next/image";
 import {
     AppBar,
     Box,
@@ -12,7 +11,7 @@ import {
     IconButton,
     List,
     SwipeableDrawer,
-    Divider,
+    Paper,
 } from "@material-ui/core";
 // Assets
 import MenuIcon from "@material-ui/icons/Menu";
@@ -92,15 +91,17 @@ export default function Layout({ children }) {
                         PaperProps={{ sx: { alignItems: "center" } }}
                         component="nav"
                     >
-                        <Box p={2}>
-                            <Image
-                                src="/logo.png"
-                                width="75px"
-                                height="75px"
-                                alt="aleexnl's logo"
-                            />
-                        </Box>
-                        <Divider light flexItem />
+                        <Paper sx={{ px: 4, py: 2, my: 2 }}>
+                            <NextLink href="/" passHref>
+                                <Link
+                                    variant="h1"
+                                    underline="hover"
+                                    onClick={handleClose}
+                                >
+                                    a
+                                </Link>
+                            </NextLink>
+                        </Paper>
                         <List
                             sx={{
                                 display: "flex",

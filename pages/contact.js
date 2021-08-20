@@ -63,13 +63,9 @@ export default function Contact() {
                     rel="canonical"
                     href="https://aleexnl.vercel.app/contact"
                 />
-                <link
-                    rel="canonical"
-                    href="https://aleexnl.vercel.app/contact"
-                />
                 <meta
                     property="og:url"
-                    content="https://aleexnl.vercel.app/about"
+                    content="https://aleexnl.vercel.app/contact"
                 />
                 <meta property="og:title" content="How to contact Aleexnl" />
                 <meta
