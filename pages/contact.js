@@ -21,8 +21,10 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export default function Contact() {
+    const router = useRouter();
     const [name, setName] = React.useState("");
     const [nameError, setNameError] = React.useState(false);
     const [email, setEmail] = React.useState("");
@@ -63,15 +65,23 @@ export default function Contact() {
                     rel="canonical"
                     href="https://aleexnl.vercel.app/contact"
                 />
+
+                {/* OpenGraph Tags */}
+                <meta property="og:title" content="How to contact Aleexnl" />
                 <meta
                     property="og:url"
                     content="https://aleexnl.vercel.app/contact"
                 />
-                <meta property="og:title" content="How to contact Aleexnl" />
+                <meta
+                    property="og:image"
+                    content="https://aleexnl.vercel.app/logo.png"
+                />
+                <meta property="og:type" content="website" />
                 <meta
                     property="og:description"
                     content="You can get in touch with me in a eas way, via social media or filling a simple contact form."
                 />
+                <meta property="og:locale" content={router.locale} />
             </Head>
             <Typography variant="h2" component="h1">
                 Contact
