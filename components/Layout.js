@@ -72,6 +72,13 @@ export default function Layout({ children }) {
         <>
             <AppBar color="transparent" position="static">
                 <Toolbar>
+                    <IconButton
+                        onClick={handleOpen}
+                        aria-label="open menu"
+                        sx={{ mr: 2 }}
+                    >
+                        {open ? <MenuOpenIcon /> : <MenuIcon />}
+                    </IconButton>
                     <NextLink href="/" passHref>
                         <Link variant="h4" underline="hover">
                             Aleexnl
@@ -124,13 +131,6 @@ export default function Layout({ children }) {
                             })}
                         </List>
                     </SwipeableDrawer>
-                    <IconButton
-                        onClick={handleOpen}
-                        aria-label="open menu"
-                        sx={{ ml: "auto" }}
-                    >
-                        {open ? <MenuOpenIcon /> : <MenuIcon />}
-                    </IconButton>
                 </Toolbar>
             </AppBar>
             <Box

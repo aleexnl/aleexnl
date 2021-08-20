@@ -22,6 +22,21 @@ export default class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
                         rel="stylesheet"
                     />
+                    {/* Global site tag (gtag.js) - Google Analytics */}
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=G-EF5PBKY239"
+                    ></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EF5PBKY239');`,
+                        }}
+                    />
+                    <script></script>
                 </Head>
                 <body>
                     <Main />
