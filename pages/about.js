@@ -23,7 +23,7 @@ export default function About() {
                 <meta property="og:title" content="Who I am? About Aleexnl" />
                 <meta
                     property="og:url"
-                    content="https://aleexnl.vercel.app/contact"
+                    content="https://aleexnl.vercel.app/about"
                 />
                 <meta
                     property="og:image"
