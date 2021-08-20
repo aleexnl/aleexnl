@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 // Frameworks
 import { useRouter } from "next/router";
+import NextLink from "next/link";
 import Image from "next/image";
 import {
     AppBar,
@@ -49,6 +50,14 @@ const links = [
  * )
  */
 export default function Layout({ children }) {
+    /**
+     *The following properties are used in this documentation website for optimal usability of the component:
+     *   iOS is hosted on high-end devices. The backdrop transition can be enabled without dropping frames. The performance will be good enough.
+     *   iOS has a "swipe to go back" feature that interferes with the discovery feature, so discovery has to be disabled.
+     */
+    const iOS =
+        typeof navigator !== "undefined" &&
+        /iPad|iPhone|iPod/.test(navigator.userAgent);
     const router = useRouter();
     const [open, setOpen] = React.useState(false);
     /**
@@ -64,14 +73,22 @@ export default function Layout({ children }) {
         <>
             <AppBar color="transparent" position="static">
                 <Toolbar>
-                    <Link variant="h4" underline="hover" href="/">
-                        Aleexnl
-                    </Link>
+                    <NextLink href="/" passHref>
+                        <Link variant="h4" underline="hover">
+                            Aleexnl
+                        </Link>
+                    </NextLink>
                     <SwipeableDrawer
                         keepMounted={true}
                         open={open}
+                        disableBackdropTransition={!iOS}
+                        disableDiscovery={iOS}
                         onOpen={handleOpen}
                         onClose={handleClose}
+                        ModalProps={{
+                            keepMounted: true,
+                            disablePortal: true,
+                        }}
                         PaperProps={{ sx: { alignItems: "center" } }}
                         component="nav"
                     >
@@ -98,6 +115,7 @@ export default function Layout({ children }) {
                                         to={link.to}
                                         selected={link.to === router.pathname}
                                         label={link.name}
+                                        closeDrawer={handleClose}
                                     >
                                         {link.icon}
                                     </ListItemLink>
