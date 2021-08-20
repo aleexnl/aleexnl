@@ -1,7 +1,6 @@
 import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
-import theme from "lib/theme";
 import createEmotionCache from "lib/createEmotionCache";
 
 export default class MyDocument extends Document {
@@ -9,33 +8,7 @@ export default class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <meta charSet="UTF-8"></meta>
-                    {/* PWA primary color */}
-                    <link
-                        rel="apple-touch-icon"
-                        sizes="180x180"
-                        href="/icons/apple-touch-icon.png"
-                    />
-                    <link
-                        rel="icon"
-                        type="image/png"
-                        sizes="32x32"
-                        href="/icons/favicon-32x32.png"
-                    />
-                    <link
-                        rel="icon"
-                        type="image/png"
-                        sizes="16x16"
-                        href="/icons/favicon-16x16.png"
-                    />
-                    <link rel="manifest" href="/manifest.json" />
-                    <link
-                        rel="mask-icon"
-                        href="/icons/safari-pinned-tab.svg"
-                        color="#5e5e5e"
-                    />
-                    <meta name="msapplication-TileColor" content="#2d89ef" />
-                    <meta name="theme-color" content="#ffffff" />
+                    <meta charSet="UTF-8" />
                     <link
                         rel="preconnect"
                         href="https://fonts.googleapis.com"
@@ -93,11 +66,9 @@ MyDocument.getInitialProps = async (ctx) => {
 
     ctx.renderPage = () =>
         originalRenderPage({
-            enhanceApp: function App() {
-                return function Props(props) {
-                    return <App emotionCache={cache} {...props} />;
-                };
-            },
+            // eslint-disable-next-line react/display-name
+            enhanceApp: (App) => (props) =>
+                <App emotionCache={cache} {...props} />,
         });
 
     const initialProps = await Document.getInitialProps(ctx);

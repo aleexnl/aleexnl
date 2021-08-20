@@ -29,6 +29,18 @@ function MyApp({
                     property="og:image"
                     content="https://aleexnl.vercel.app/logo.png"
                 />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href="/icons/favicon-32x32.png"
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href="/icons/favicon-16x16.png"
+                />
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

@@ -12,6 +12,7 @@ import { ListItemButton, Link, ListItemIcon } from "@material-ui/core";
  * @param {String} props.label Text of the link element
  * @param {String} props.selected If the user actually selected this button.
  * @param {JSX.Element} props.children Icon for the label
+ * @param {Function} props.closeDrawer Function thtat closes the drawer
  *
  * @component
  *
@@ -23,7 +24,13 @@ import { ListItemButton, Link, ListItemIcon } from "@material-ui/core";
  *  </List>
  * )
  */
-export default function ListItemLink({ to, label, selected, children }) {
+export default function ListItemLink({
+    to,
+    label,
+    selected,
+    children,
+    closeDrawer,
+}) {
     const router = useRouter();
     const CustomLink = React.useMemo(
         () =>
@@ -38,7 +45,10 @@ export default function ListItemLink({ to, label, selected, children }) {
         []
     );
 
-    const handleClick = () => router.push(to);
+    const handleClick = () => {
+        router.push(to);
+        closeDrawer();
+    };
 
     return (
         <ListItemButton
@@ -69,9 +79,14 @@ ListItemLink.propTypes = {
      * Label Icon
      */
     children: PropTypes.element,
+    /**
+     * Function to close the drawer
+     */
+    closeDrawer: PropTypes.func,
 };
 
 ListItemLink.defaultProps = {
     label: "New Page",
     selected: false,
+    closeDrawer: () => {},
 };
