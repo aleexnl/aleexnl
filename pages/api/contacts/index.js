@@ -22,7 +22,7 @@ export default async function handler(req, res) {
             break;
         case "POST":
         case "PUT":
-            const isCreated = setContact(JSON.parse(req.body));
+            const isCreated = await setContact(JSON.parse(req.body));
             res.send({ created: isCreated });
             break;
         default:
@@ -58,13 +58,16 @@ const getContacts = () => {
  * @param {String} contact.message The contact body
  * @returns {Boolean} If the contact was created or not
  */
-const setContact = ({ name, email, message }) => {
+const setContact = async ({ name, email, message }) => {
     const id = +new Date();
+    console.info("Creating new user " + id);
     const usersRef = database.ref("users/" + id);
-    usersRef.set({
+    console.info("Creating new user...");
+    await usersRef.set({
         name,
         email,
         message,
     });
+    console.log("User created !");
     return true;
 };
