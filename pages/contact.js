@@ -8,6 +8,8 @@ import {
     InputAdornment,
     IconButton,
     Box,
+    Snackbar,
+    Alert,
 } from "@material-ui/core";
 import LoadingButton from "@material-ui/lab/LoadingButton";
 // Assets
@@ -22,6 +24,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { makeApiRequest } from "lib/helpers";
 
 export default function Contact() {
     const router = useRouter();
@@ -31,28 +34,35 @@ export default function Contact() {
     const [emailError, setEmailError] = React.useState(false);
     const [message, setMessage] = React.useState("");
     const [messageError, setMessageError] = React.useState(false);
+    const [sendStatus, setSendStatus] = React.useState("success");
+    const [open, setOpen] = React.useState(false); // Snackbar status
     React.useEffect(() => {
         name ? setNameError(false) : setNameError(true);
-    }, [name]);
-    React.useEffect(() => {
         email ? setEmailError(false) : setEmailError(true);
-    }, [email]);
-    React.useEffect(() => {
         message ? setMessageError(false) : setMessageError(true);
-    }, [message]);
+    }, [email, message, name]);
     React.useEffect(() => {
         setMessageError(false);
         setEmailError(false);
         setNameError(false);
     }, []);
     const [sending, setSending] = React.useState(false);
-    const handleSend = () => {
+    const handleSend = async () => {
         setSending(true);
-        setTimeout(() => {
-            console.log("sended");
-            setSending(false);
-        }, 3000);
+        const body = { name: name, email: email, message: message };
+        const response = await makeApiRequest(
+            "contacts",
+            "POST",
+            JSON.stringify(body)
+        );
+        setOpen(true);
+        setSending(false);
+        if (!response.ok) {
+            return setSendStatus("error");
+        }
+        setSendStatus("success");
     };
+    const handleClose = () => setOpen(false);
     return (
         <>
             <Head>
@@ -219,11 +229,22 @@ export default function Contact() {
                         loading={sending}
                         loadingPosition="start"
                         onClick={handleSend}
-                        type="submit"
                     >
                         {sending ? "Sending..." : "Send"}
                     </LoadingButton>
                 </Paper>
+                <Snackbar
+                    autoHideDuration={5000}
+                    open={open}
+                    onClose={handleClose}
+                >
+                    <Alert severity={sendStatus}>
+                        {sendStatus == "error" &&
+                            "Ops! There was an error sending your request! Please, try again later."}
+                        {sendStatus == "success" &&
+                            "Your request was sended succesfuly, I'll get in touch with you "}
+                    </Alert>
+                </Snackbar>
             </Box>
         </>
     );
