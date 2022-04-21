@@ -1,4 +1,4 @@
-### Hi there I'm [Alejandro](https://aleexnl.me) !👋
+### Hi there I'm Alejandro!👋
 
 I'm Alejandro Nieto, a 20-year old enthusiast trying to become a full stack developer.<br>
 
