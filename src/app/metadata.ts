@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-portfolio-url.com",
+    url: "https://aleexnl.vercel.app/",
     title: "Alejandro Nieto Luque - Frontend Developer",
     description:
       "Frontend developer passionate about creating responsive, user-friendly web applications",
