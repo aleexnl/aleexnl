@@ -4,22 +4,33 @@ import { ExperienceItem } from "./ExperienceItem";
 export const Experience: React.FC = () => {
   const experiences = [
     {
-      title: "Frontend Developer",
-      period: "2021 - Present",
-      company: "Company Name",
+      title: "Fullstack Developer",
+      period: "May 2022 - Present",
+      company: "Vueling, Viladecans",
       responsibilities: [
-        "Developed responsive web applications using React and Next.js",
-        "Implemented UI components using Tailwind CSS",
-        "Collaborated with designers to create user-friendly interfaces",
+        "Developed and maintained REST API services using .NET Core and .NET Framework",
+        "Built mobile applications with Xamarin framework",
+        "Collaborated in agile teams following the SCRUM methodology",
       ],
     },
     {
-      title: "Web Developer Intern",
-      period: "2020 - 2021",
-      company: "Internship Company",
+      title: "Web Applications Developer",
+      period: "October 2020 - May 2022",
+      company: "tradEAsy, Cornellá de Llobregat, Barcelona",
       responsibilities: [
-        "Assisted in building website features using HTML, CSS, and JavaScript",
-        "Learned responsive design techniques and modern frontend frameworks",
+        "Developed frontend applications using React",
+        "Built backend services with NodeJS (TypeScript, Sequelize & Express)",
+        "Managed version control with Git and automated CI/CD using GitHub Actions",
+        "Administered MySQL databases",
+      ],
+    },
+    {
+      title: "IT Services Technician",
+      period: "November 2018 - May 2021",
+      company: "Okatent, Olesa de Montserrat, Barcelona",
+      responsibilities: [
+        "Maintained and updated servers, services, and devices across departments",
+        "Repaired damaged devices and implemented new technologies and software",
       ],
     },
   ];
