@@ -5,6 +5,7 @@ import { SkillsLoading } from "../components/SkillsLoading";
 import { Education } from "../components/Education";
 import { Experience } from "../components/Experience";
 import { Languages } from "../components/Languages";
+import { Connect } from "../components/Connect";
 
 // Mark page as static
 export const revalidate = 86400; // Revalidate once per day
@@ -56,6 +57,8 @@ export default function Home() {
 
           {/* Right Column: Skills, Languages, Personal Statement */}
           <div className="space-y-8">
+            <Connect />
+
             <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center gap-2">
                 <svg
