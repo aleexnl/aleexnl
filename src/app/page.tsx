@@ -4,6 +4,7 @@ import { SkillsSection } from "../components/SkillsSection";
 import { SkillsLoading } from "../components/SkillsLoading";
 import { Education } from "../components/Education";
 import { Experience } from "../components/Experience";
+import { Languages } from "../components/Languages";
 
 // Mark page as static
 export const revalidate = 86400; // Revalidate once per day
@@ -78,45 +79,7 @@ export default function Home() {
               </Suspense>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-blue-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-                  ></path>
-                </svg>
-                Languages
-              </h2>
-              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-center justify-between">
-                  <span>Spanish</span>
-                  <span className="font-medium text-blue-600 dark:text-blue-400">
-                    Native
-                  </span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span>Catalan</span>
-                  <span className="font-medium text-blue-600 dark:text-blue-400">
-                    Native
-                  </span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span>English</span>
-                  <span className="font-medium text-blue-600 dark:text-blue-400">
-                    Fluent
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <Languages />
 
             <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center gap-2">
