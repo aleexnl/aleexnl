@@ -4,7 +4,15 @@ import { Education } from "../Education";
 
 // Mock the EducationItem component to make testing easier
 jest.mock("../EducationItem", () => ({
-  EducationItem: ({ title, institution, period }: any) => (
+  EducationItem: ({
+    title,
+    institution,
+    period,
+  }: {
+    title: string;
+    institution: string;
+    period: string;
+  }) => (
     <div data-testid="education-item">
       <div data-testid="title">{title}</div>
       <div data-testid="institution">{institution}</div>
