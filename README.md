@@ -1,13 +1,35 @@
-### Hi there I'm Alejandro!👋
+<h1 align="left">Hey 👋 What's up?</h1>
 
-I'm Alejandro Nieto, a 20-year old enthusiast trying to become a full stack developer.<br>
+###
 
-## 📫 How to reach me:
+<p align="left">My name is Alejandro and  I'm currently working as a Software Developer Consultant at IN2, collaborating with Vueling to build and enhance robust software solutions.</p>
 
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alejandro-nieto-luque/) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aleexnl) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/aleexnl/)
+###
 
--   🌱 I’m currently learning [.NET](https://dotnet.microsoft.com/en-us/)
+<h2 align="left">About me</h2>
 
-![Alejandro's github stats](https://github-readme-stats.vercel.app/api?username=aleexnl&show_icons=true&theme=dark)
+###
 
-⭐️ _From [Aleexnl](https://github.com/aleexnl)_
+<p align="left">✨ Creating bugs since I wrote my first <b>"Hello World!"</b>  <br>📚 I'm currently learning <b>native mobile development in Android & iOS.</b>  <br>🎯 Goals: <b>Master DevOps automation, contribute to open-source projects, and build scalable software solutions.</b>  <br>🎲 Fun fact: <b>I once spent hours debugging, only to realize I forgot a semicolon. Classic!</b> 😅</p>
+
+###
+
+<h2 align="left">I code with</h2>
+
+###
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="40" alt="csharp logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" height="40" alt="dot-net logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" height="40" alt="dotnetcore logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xamarin/xamarin-original.svg" height="40" alt="xamarin logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" height="40" alt="kotlin logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" height="40" alt="androidstudio logo"  />
+</div>
+
+###
