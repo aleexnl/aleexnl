@@ -4,7 +4,7 @@ import { ExperienceItem } from "../ExperienceItem";
 describe("ExperienceItem", () => {
   const mockProps = {
     title: "Software Engineer",
-    period: "2020 - 2021",
+    period: "2020 ‑ 2021",
     company: "Test Company",
     responsibilities: ["Responsibility 1", "Responsibility 2"],
   };
