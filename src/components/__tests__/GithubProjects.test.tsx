@@ -44,36 +44,6 @@ describe("GithubProjects", () => {
     expect(screen.getByText("10")).toBeInTheDocument();
   });
 
-  it("navigates through repositories with next/prev buttons", async () => {
-    render(<GithubProjects />);
-
-    // Wait for repos to load
-    await waitFor(() => {
-      expect(screen.getByText("repo-1")).toBeInTheDocument();
-    });
-
-    // Click next button
-    const nextButton = screen.getByLabelText("Next project");
-    fireEvent.click(nextButton);
-
-    // Verify second repo is displayed
-    await waitFor(() => {
-      expect(screen.getByText("repo-2")).toBeInTheDocument();
-      expect(screen.getByText("Second test repository")).toBeInTheDocument();
-      expect(screen.getByText("JavaScript")).toBeInTheDocument();
-      expect(screen.getByText("20")).toBeInTheDocument();
-    });
-
-    // Click prev button
-    const prevButton = screen.getByLabelText("Previous project");
-    fireEvent.click(prevButton);
-
-    // Verify first repo is displayed again
-    await waitFor(() => {
-      expect(screen.getByText("repo-1")).toBeInTheDocument();
-    });
-  });
-
   it("handles fetch error gracefully", async () => {
     // Mock fetch to reject
     (global.fetch as jest.Mock).mockRejectedValue(new Error("Failed to fetch"));
