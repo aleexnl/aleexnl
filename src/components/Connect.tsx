@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ConnectItem } from "./ConnectItem";
 
 export const Connect = () => {
