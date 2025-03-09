@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { metadata, viewport } from "./metadata";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Optimize font loading
 const inter = Inter({
@@ -26,6 +28,8 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <Analytics />
+        <SpeedInsights />
         <div id="main-content">{children}</div>
       </body>
     </html>
