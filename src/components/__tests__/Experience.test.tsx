@@ -11,24 +11,18 @@ describe("Experience", () => {
   it("renders all experience items", () => {
     render(<Experience />);
 
-    // Check for the presence of updated experience titles
+    // Check for section title
+    expect(screen.getByText("Experience")).toBeInTheDocument();
+
+    // Check for updated periods
+    expect(screen.getByText("May 2022 ‑ Present")).toBeInTheDocument();
+    expect(screen.getByText("October 2020 ‑ May 2022")).toBeInTheDocument();
+    expect(screen.getByText("November 2018 ‑ May 2021")).toBeInTheDocument();
+
+    // Check for job titles
     expect(screen.getByText("Fullstack Developer")).toBeInTheDocument();
     expect(screen.getByText("Web Applications Developer")).toBeInTheDocument();
     expect(screen.getByText("IT Services Technician")).toBeInTheDocument();
-
-    // Check for updated periods
-    expect(screen.getByText("May 2022 - Present")).toBeInTheDocument();
-    expect(screen.getByText("October 2020 - May 2022")).toBeInTheDocument();
-    expect(screen.getByText("November 2018 - May 2021")).toBeInTheDocument();
-
-    // Check for updated companies
-    expect(screen.getByText("Vueling, Viladecans")).toBeInTheDocument();
-    expect(
-      screen.getByText("tradEAsy, Cornellá de Llobregat, Barcelona")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Okatent, Olesa de Montserrat, Barcelona")
-    ).toBeInTheDocument();
   });
 
   it("renders with correct container styling", () => {

@@ -3,10 +3,11 @@ import { DateChip } from "../DateChip";
 
 describe("DateChip", () => {
   const testDate = "2020 - Present";
+  const formattedTestDate = testDate.replace(/ - /g, " ‑ ");
 
   it("renders date text correctly", () => {
     render(<DateChip date={testDate} />);
-    expect(screen.getByText(testDate)).toBeInTheDocument();
+    expect(screen.getByText(formattedTestDate)).toBeInTheDocument();
   });
 
   it("renders with correct styling classes", () => {
