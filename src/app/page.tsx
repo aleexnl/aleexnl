@@ -6,6 +6,7 @@ import { Education } from "../components/Education";
 import { Experience } from "../components/Experience";
 import { Languages } from "../components/Languages";
 import { Connect } from "../components/Connect";
+import { Card } from "../components/Card";
 
 // Mark page as static
 export const revalidate = 86400; // Revalidate once per day
@@ -58,11 +59,11 @@ export default function Home() {
           {/* Right Column: Skills, Languages, Personal Statement */}
           <div className="space-y-8">
             <Connect />
-
-            <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center gap-2">
+            <Card
+              title="Skills"
+              icon={
                 <svg
-                  className="w-5 h-5 text-blue-500"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -75,19 +76,20 @@ export default function Home() {
                     d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                   ></path>
                 </svg>
-                Skills
-              </h2>
+              }
+            >
               <Suspense fallback={<SkillsLoading />}>
                 <SkillsSection />
               </Suspense>
-            </div>
+            </Card>
 
             <Languages />
 
-            <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center gap-2">
+            <Card
+              title="Personal Statement"
+              icon={
                 <svg
-                  className="w-5 h-5 text-blue-500"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -100,15 +102,15 @@ export default function Home() {
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                   ></path>
                 </svg>
-                Personal Statement
-              </h2>
+              }
+            >
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Motivated and adaptable professional with a strong willingness
                 to learn and take on new challenges. Quick to adjust to changing
                 environments and committed to teamwork as a key factor in
                 achieving goals, fostering growth, and learning from others.
               </p>
-            </div>
+            </Card>
           </div>
         </section>
 
