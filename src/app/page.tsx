@@ -7,6 +7,8 @@ import { Experience } from "../components/Experience";
 import { Languages } from "../components/Languages";
 import { Connect } from "../components/Connect";
 import { Card } from "../components/Card";
+import { GithubProjects } from "../components/GithubProjects";
+import { GithubProjectsLoading } from "../components/GithubProjectsLoading";
 
 // Mark page as static
 export const revalidate = 86400; // Revalidate once per day
@@ -46,6 +48,13 @@ export default function Home() {
               </svg>
               alex.nieto0027@gmail.com
             </Link>
+          </div>
+
+          {/* Add Github Projects Carousel */}
+          <div className="mt-8">
+            <Suspense fallback={<GithubProjectsLoading />}>
+              <GithubProjects />
+            </Suspense>
           </div>
         </header>
 
