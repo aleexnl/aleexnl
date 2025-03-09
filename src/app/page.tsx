@@ -24,7 +24,7 @@ export default function Home() {
               Alejandro Nieto Luque
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-              Frontend Developer
+              Software Developer
             </p>
             <Link
               href="mailto:alex.nieto0027@gmail.com"
