@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import { GithubProjectItem } from "./GithubProjectItem";
 
@@ -12,15 +9,31 @@ interface GithubRepo {
   stargazers_count: number;
 }
 
-export function GithubProjects() {
-  const [repos, setRepos] = useState<GithubRepo[]>([]);
+async function getGithubRepos(): Promise<GithubRepo[]> {
+  try {
+    const res = await fetch(
+      "https://api.github.com/users/aleexnl/repos?sort=stars&per_page=6",
+      {
+        next: { revalidate: 86400 }, // Revalidate once per day
+        headers: {
+          Accept: "application/vnd.github.v3+json",
+        },
+      }
+    );
 
-  useEffect(() => {
-    fetch("https://api.github.com/users/aleexnl/repos?sort=stars&per_page=6")
-      .then((res) => res.json())
-      .then((data) => setRepos(data))
-      .catch(console.error);
-  }, []);
+    if (!res.ok) {
+      throw new Error(`GitHub API returned ${res.status}`);
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error("Error fetching GitHub repos:", error);
+    return [];
+  }
+}
+
+export async function GithubProjects() {
+  const repos = await getGithubRepos();
 
   if (repos.length === 0) return null;
 
