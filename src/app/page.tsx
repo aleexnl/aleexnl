@@ -1,7 +1,4 @@
-import Link from "next/link";
-import { Suspense } from "react";
 import { SkillsSection } from "../components/SkillsSection";
-import { SkillsLoading } from "../components/SkillsLoading";
 import { Education } from "../components/Education";
 import { Experience } from "../components/Experience";
 import { Languages } from "../components/Languages";
@@ -27,31 +24,11 @@ export default function Home() {
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
               Software Developer
             </p>
-            <Link
-              href="mailto:alex.nieto0027@gmail.com"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-lg hover:shadow-xl font-medium"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                ></path>
-              </svg>
-              alex.nieto0027@gmail.com
-            </Link>
           </div>
 
           {/* Add Github Projects - Now rendering server-side */}
           <div className="mt-8">
-              <GithubProjects />
+            <GithubProjects />
           </div>
         </header>
 
@@ -84,9 +61,7 @@ export default function Home() {
                 </svg>
               }
             >
-              <Suspense fallback={<SkillsLoading />}>
-                <SkillsSection />
-              </Suspense>
+              <SkillsSection />
             </Card>
 
             <Languages />
