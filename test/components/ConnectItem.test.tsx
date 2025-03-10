@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ConnectItem } from "../ConnectItem";
+import { ConnectItem } from "../../src/components/ConnectItem";
 
 describe("ConnectItem", () => {
   const defaultProps = {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { LanguageItem } from "../LanguageItem";
+import { LanguageItem } from "../../src/components/LanguageItem";
 
 describe("LanguageItem", () => {
   const defaultProps = {

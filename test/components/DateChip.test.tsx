@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { DateChip } from "../DateChip";
+import { DateChip } from "../../src/components/DateChip";
 
 describe("DateChip", () => {
   const testDate = "2020 - Present";

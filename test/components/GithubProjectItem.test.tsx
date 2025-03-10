@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { GithubProjectItem } from "../GithubProjectItem";
+import { GithubProjectItem } from "../../src/components/GithubProjectItem";
 
 describe("GithubProjectItem", () => {
   const mockRepo = {

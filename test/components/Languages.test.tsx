@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Languages } from "../Languages";
+import { Languages } from "../../src/components/Languages";
 
 describe("Languages", () => {
   it("renders languages section heading", () => {
