@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Connect } from "../Connect";
+import { Connect } from "../../src/components/Connect";
 
 describe("Connect", () => {
   it("renders connect section with social links", () => {

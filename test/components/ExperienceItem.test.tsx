@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ExperienceItem } from "../ExperienceItem";
+import { ExperienceItem } from "../../src/components/ExperienceItem";
 
 describe("ExperienceItem", () => {
   const mockProps = {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { SkillsSection } from "../SkillsSection";
+import { SkillsSection } from "../../src/components/SkillsSection";
 
 describe("SkillsSection", () => {
   it("renders all skills", () => {

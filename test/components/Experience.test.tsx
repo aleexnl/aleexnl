@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Experience } from "../Experience";
+import { Experience } from "../../src/components/Experience";
 
 describe("Experience", () => {
   it("renders the section title with icon", () => {

@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Education } from "../Education";
+import { Education } from "../../src/components/Education";
 
 // Mock the EducationItem component to make testing easier
-jest.mock("../EducationItem", () => ({
+jest.mock("../../src/components/EducationItem", () => ({
   EducationItem: ({
     title,
     institution,

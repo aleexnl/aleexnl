@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Skill } from "../Skill";
+import { Skill } from "../../src/components/Skill";
 
 describe("Skill", () => {
   it("renders skill with icon and text", () => {
