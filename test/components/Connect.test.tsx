@@ -1,9 +1,10 @@
+import { Connect } from "@/components/Connect";
 import { render, screen } from "@testing-library/react";
-import { Connect } from "../../src/components/Connect";
+import { connectItems } from "../fixtures/connect";
 
 describe("Connect", () => {
   it("renders connect section with social links", () => {
-    render(<Connect />);
+    render(<Connect items={connectItems} />);
 
     expect(screen.getByText("Connect")).toBeInTheDocument();
     expect(screen.getByText("LinkedIn")).toBeInTheDocument();
