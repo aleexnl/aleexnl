@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Education } from "../../src/components/Education";
+import { educationItems as educationItemsFixture } from "../fixtures/education";
 
 // Mock the EducationItem component to make testing easier
 jest.mock("../../src/components/EducationItem", () => ({
@@ -23,19 +24,21 @@ jest.mock("../../src/components/EducationItem", () => ({
 
 describe("Education", () => {
   it("renders education heading correctly", () => {
-    const { getByText } = render(<Education />);
+    const { getByText } = render(<Education items={educationItemsFixture} />);
     expect(getByText("Education")).toBeInTheDocument();
   });
 
   it("renders education icon/svg", () => {
-    const { container } = render(<Education />);
+    const { container } = render(<Education items={educationItemsFixture} />);
     const svg = container.querySelector("svg");
     expect(svg).toBeInTheDocument();
     expect(svg).toHaveClass("text-blue-500");
   });
 
   it("renders all education items", () => {
-    const { getAllByTestId } = render(<Education />);
+    const { getAllByTestId } = render(
+      <Education items={educationItemsFixture} />
+    );
     const educationItems = getAllByTestId("education-item");
     expect(educationItems).toHaveLength(3);
 
@@ -54,7 +57,7 @@ describe("Education", () => {
   });
 
   it("renders with correct container styling", () => {
-    const { container } = render(<Education />);
+    const { container } = render(<Education items={educationItemsFixture} />);
     const mainDiv = container.firstChild as HTMLElement;
     expect(mainDiv).toHaveClass(
       "bg-white",

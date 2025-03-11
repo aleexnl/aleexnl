@@ -1,15 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import { Experience } from "../../src/components/Experience";
+import { experiences } from "../fixtures/experience";
 
 describe("Experience", () => {
   it("renders the section title with icon", () => {
-    render(<Experience />);
+    render(<Experience items={experiences} />);
     expect(screen.getByText("Experience")).toBeInTheDocument();
     expect(document.querySelector("svg")).toBeInTheDocument();
   });
 
   it("renders all experience items", () => {
-    render(<Experience />);
+    render(<Experience items={experiences} />);
 
     // Check for section title
     expect(screen.getByText("Experience")).toBeInTheDocument();
@@ -26,7 +27,7 @@ describe("Experience", () => {
   });
 
   it("renders with correct container styling", () => {
-    const { container } = render(<Experience />);
+    const { container } = render(<Experience items={experiences} />);
     const mainContainer = container.firstChild as HTMLElement;
 
     expect(mainContainer).toHaveClass(

@@ -1,5 +1,6 @@
 import React from "react";
 import { DateChip } from "./DateChip";
+import { ResponsibilityItem } from "./ResponsibilityItem";
 
 interface ExperienceItemProps {
   title: string;
@@ -24,10 +25,7 @@ export const ExperienceItem: React.FC<ExperienceItemProps> = ({
       <p className="text-gray-600 dark:text-gray-400 italic mt-1">{company}</p>
       <ul className="list-none mt-3 space-y-2 text-gray-700 dark:text-gray-300">
         {responsibilities.map((responsibility, index) => (
-          <li key={index} className="flex items-start">
-            <span className="text-blue-500 mr-2">•</span>
-            {responsibility}
-          </li>
+          <ResponsibilityItem key={index} responsibility={responsibility} />
         ))}
       </ul>
     </div>

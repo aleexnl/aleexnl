@@ -1,22 +1,23 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Languages } from "../../src/components/Languages";
+import { languages } from "../fixtures/languages";
 
 describe("Languages", () => {
   it("renders languages section heading", () => {
-    render(<Languages />);
+    render(<Languages items={languages} />);
     expect(screen.getByText("Languages")).toBeInTheDocument();
   });
 
   it("renders languages icon", () => {
-    const { container } = render(<Languages />);
+    const { container } = render(<Languages items={languages} />);
     const svg = container.querySelector("svg");
     expect(svg).toBeInTheDocument();
     expect(svg).toHaveClass("text-blue-500");
   });
 
   it("renders all languages with their levels", () => {
-    render(<Languages />);
+    render(<Languages items={languages} />);
 
     // Check languages
     expect(screen.getByText("Spanish")).toBeInTheDocument();
@@ -30,7 +31,7 @@ describe("Languages", () => {
   });
 
   it("renders with correct container styling", () => {
-    const { container } = render(<Languages />);
+    const { container } = render(<Languages items={languages} />);
     const mainDiv = container.firstChild as HTMLElement;
     expect(mainDiv).toHaveClass(
       "bg-white",
