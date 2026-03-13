@@ -1,21 +1,20 @@
-import React from "react";
-import { EducationItem } from "./EducationItem";
+import type { Education as EducationType } from "../types/education";
 import { Card } from "./Card";
+import { EducationItem } from "./EducationItem";
 import { EducationIcon } from "./icons/EducationIcon";
-import { Education as EducationType } from "../types/education";
 
 interface EducationProps {
-  items: EducationType[];
+	items: EducationType[];
 }
 
 export function Education({ items }: EducationProps) {
-  return (
-    <Card title="Education" icon={<EducationIcon />}>
-      <div className="space-y-8">
-        {items.map((item, index) => (
-          <EducationItem key={index} {...item} />
-        ))}
-      </div>
-    </Card>
-  );
+	return (
+		<Card title="Education" icon={<EducationIcon />}>
+			<div className="space-y-8">
+				{items.map((item) => (
+					<EducationItem key={item.title} {...item} />
+				))}
+			</div>
+		</Card>
+	);
 }
