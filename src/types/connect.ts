@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface ConnectItem {
-  href: string;
-  icon: ReactNode;
-  name: string;
-  hoverColor?: {
-    light: string;
-    dark: string;
-  };
+	href: string;
+	icon: ReactNode;
+	name: string;
+	hoverColor?: {
+		light: string;
+		dark: string;
+	};
 }
