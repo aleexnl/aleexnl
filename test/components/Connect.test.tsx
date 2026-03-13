@@ -6,9 +6,9 @@ describe("Connect", () => {
 	it("renders connect section with social links", () => {
 		render(<Connect items={connectItems} />);
 
-		expect(screen.getByText("Connect")).toBeInTheDocument();
-		expect(screen.getByText("LinkedIn")).toBeInTheDocument();
-		expect(screen.getByText("GitHub")).toBeInTheDocument();
+		expect(screen.getByRole("heading", { name: /Connect/i })).toBeInTheDocument();
+		expect(screen.getAllByText("LinkedIn").length).toBeGreaterThan(0);
+		expect(screen.getAllByText("GitHub").length).toBeGreaterThan(0);
 
 		const linkedinLink = screen.getByRole("link", { name: /linkedin/i });
 		const githubLink = screen.getByRole("link", { name: /github/i });

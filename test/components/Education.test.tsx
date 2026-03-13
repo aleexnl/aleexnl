@@ -23,8 +23,8 @@ vi.mock("../../src/components/EducationItem", () => ({
 
 describe("Education", () => {
 	it("renders education heading correctly", () => {
-		const { getByText } = render(<Education items={educationItemsFixture} />);
-		expect(getByText("Education")).toBeInTheDocument();
+		const { getByRole } = render(<Education items={educationItemsFixture} />);
+		expect(getByRole("heading", { name: /Education/i })).toBeInTheDocument();
 	});
 
 	it("renders education icon/svg", () => {

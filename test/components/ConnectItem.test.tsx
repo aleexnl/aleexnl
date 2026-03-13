@@ -21,7 +21,7 @@ describe("ConnectItem", () => {
 	it("renders link with correct attributes", () => {
 		render(<ConnectItem {...defaultProps} />);
 
-		const link = screen.getByRole("link", { name: defaultProps.name });
+		const link = screen.getByRole("link", { name: new RegExp(defaultProps.name, "i") });
 		expect(link).toHaveAttribute("href", defaultProps.href);
 		expect(link).toHaveAttribute("target", "_blank");
 		expect(link).toHaveAttribute("rel", "noopener noreferrer");

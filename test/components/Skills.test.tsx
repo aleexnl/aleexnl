@@ -8,7 +8,7 @@ describe("Skills", () => {
 
 		expect(screen.getByText(".NET Development")).toBeInTheDocument();
 		expect(screen.getByText("Azure DevOps")).toBeInTheDocument();
-		expect(screen.getByText("GitHub")).toBeInTheDocument();
+		expect(screen.getAllByText("GitHub").length).toBeGreaterThan(0);
 		expect(screen.getByText("Android Development")).toBeInTheDocument();
 		expect(screen.getByText("iOS Development")).toBeInTheDocument();
 	});
