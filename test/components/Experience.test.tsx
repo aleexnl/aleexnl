@@ -5,7 +5,9 @@ import { experiences } from "../fixtures/experience";
 describe("Experience", () => {
 	it("renders the section title with icon", () => {
 		render(<Experience items={experiences} />);
-		expect(screen.getByRole("heading", { name: /Experience/i })).toBeInTheDocument();
+		expect(
+			screen.getByRole("heading", { name: /Experience/i }),
+		).toBeInTheDocument();
 		expect(document.querySelector("svg")).toBeInTheDocument();
 	});
 
@@ -13,7 +15,9 @@ describe("Experience", () => {
 		render(<Experience items={experiences} />);
 
 		// Check for section title
-		expect(screen.getByRole("heading", { name: /Experience/i })).toBeInTheDocument();
+		expect(
+			screen.getByRole("heading", { name: /Experience/i }),
+		).toBeInTheDocument();
 
 		// Check for updated periods
 		expect(screen.getByText("May 2022 ‑ Present")).toBeInTheDocument();

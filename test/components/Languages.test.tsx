@@ -5,7 +5,9 @@ import { languages } from "../fixtures/languages";
 describe("Languages", () => {
 	it("renders languages section heading", () => {
 		render(<Languages items={languages} />);
-		expect(screen.getByRole("heading", { name: /Languages/i })).toBeInTheDocument();
+		expect(
+			screen.getByRole("heading", { name: /Languages/i }),
+		).toBeInTheDocument();
 	});
 
 	it("renders languages icon", () => {
