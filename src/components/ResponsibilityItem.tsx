@@ -1,16 +1,16 @@
-import React from "react";
+import type React from "react";
 
 interface ResponsibilityItemProps {
-  responsibility: string;
+	responsibility: string;
 }
 
 export const ResponsibilityItem: React.FC<ResponsibilityItemProps> = ({
-  responsibility,
+	responsibility,
 }) => {
-  return (
-    <li className="flex items-start">
-      <span className="text-blue-500 mr-2">•</span>
-      {responsibility}
-    </li>
-  );
+	return (
+		<li className="flex items-start">
+			<span className="text-blue-500 mr-2">•</span>
+			{responsibility}
+		</li>
+	);
 };

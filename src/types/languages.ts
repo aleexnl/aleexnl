@@ -1,4 +1,4 @@
 export interface Language {
-  name: string;
-  level: string;
+	name: string;
+	level: string;
 }

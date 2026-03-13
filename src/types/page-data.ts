@@ -1,13 +1,13 @@
-import { ConnectItem } from "./connect";
-import { Education } from "./education";
-import { Experience } from "./experience";
-import { Language } from "./languages";
-import { Skill } from "./skills";
+import type { ConnectItem } from "./connect";
+import type { Education } from "./education";
+import type { Experience } from "./experience";
+import type { Language } from "./languages";
+import type { Skill } from "./skills";
 
 export interface PageData {
-  connect: ConnectItem[];
-  education: Education[];
-  experience: Experience[];
-  languages: Language[];
-  skills: Skill[];
+	connect: ConnectItem[];
+	education: Education[];
+	experience: Experience[];
+	languages: Language[];
+	skills: Skill[];
 }
