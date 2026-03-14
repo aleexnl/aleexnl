@@ -1,0 +1,88 @@
+{
+	"meta": {
+		"title": "Alejandro - Desarrollador de Software",
+		"description": "Desarrollador de software .NET con experiencia en la creación de aplicaciones web escalables, APIs y soluciones empresariales con C#, ASP.NET y tecnologías Microsoft."
+	},
+	"nav": {
+		"skipToContent": "Saltar al contenido",
+		"languageSwitcher": "Idioma"
+	},
+	"home": {
+		"tagline": "Desarrollador de Software",
+		"personalStatement": "Profesional motivado y adaptable con una gran disposición para aprender y asumir nuevos retos. Capacidad para adaptarse rápidamente a entornos cambiantes y compromiso con el trabajo en equipo como factor clave para alcanzar objetivos, fomentar el crecimiento y aprender de los demás."
+	},
+	"sections": {
+		"experience": "Experiencia",
+		"education": "Educación",
+		"skills": "Habilidades",
+		"languages": "Idiomas",
+		"connect": "Contacto",
+		"featuredProjects": "Proyectos Destacados",
+		"personalStatement": "Presentación Personal"
+	},
+	"experience": {
+		"expandLabel": "Mostrar responsabilidades",
+		"collapseLabel": "Ocultar responsabilidades",
+		"items": [
+			{
+				"title": "Fullstack Developer",
+				"period": "Mayo 2022 - Actualidad",
+				"company": "Vueling, Viladecans",
+				"responsibilities": [
+					"Desarrollo y mantenimiento de servicios REST API con .NET Core y .NET Framework",
+					"Creación de aplicaciones móviles con el framework Xamarin",
+					"Colaboración en equipos ágiles siguiendo la metodología SCRUM"
+				]
+			},
+			{
+				"title": "Desarrollador de Aplicaciones Web",
+				"period": "Octubre 2020 - Mayo 2022",
+				"company": "tradEAsy, Cornellá de Llobregat, Barcelona",
+				"responsibilities": [
+					"Desarrollo de frontend con React",
+					"Creación de servicios backend con NodeJS (TypeScript, Sequelize y Express)",
+					"Gestión del control de versiones con Git y CI/CD automatizado con GitHub Actions",
+					"Administración de bases de datos MySQL"
+				]
+			},
+			{
+				"title": "Técnico de Servicios Informáticos",
+				"period": "Noviembre 2018 - Mayo 2021",
+				"company": "Okatent, Olesa de Montserrat, Barcelona",
+				"responsibilities": [
+					"Mantenimiento y actualización de servidores, servicios y dispositivos en todos los departamentos",
+					"Reparación de dispositivos e implementación de nuevas tecnologías y software"
+				]
+			}
+		]
+	},
+	"education": {
+		"items": [
+			{
+				"title": "Formación en .NET",
+				"institution": "Vueling University",
+				"period": "2022"
+			},
+			{
+				"title": "Técnico Superior en Desarrollo de Aplicaciones Web (Nivel EQF 5)",
+				"institution": "Institut Esteve Terradas i Illa",
+				"period": "2019 - 2021"
+			},
+			{
+				"title": "Técnico en Sistemas Microinformáticos y Redes (Nivel EQF 4)",
+				"institution": "Institut Daniel Blanxart",
+				"period": "2017 - 2019"
+			}
+		]
+	},
+	"languages": {
+		"items": [
+			{ "name": "Español", "level": "Nativo" },
+			{ "name": "Catalán", "level": "Nativo" },
+			{ "name": "Inglés", "level": "Avanzado" }
+		]
+	},
+	"footer": {
+		"copyright": "Portafolio"
+	}
+}

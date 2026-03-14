@@ -12,13 +12,15 @@ export function EducationItem({
 	period,
 }: EducationItemProps) {
 	return (
-		<div className="relative pl-8 border-l-2 border-blue-100 dark:border-blue-900">
-			<div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
+		<div className="relative pl-8 border-l border-gray-200 dark:border-gray-700">
+			<div className="absolute w-2 h-2 bg-gray-400 rounded-full -left-[5px] top-2" />
 			<div className="flex justify-between items-start gap-8">
-				<h3 className="text-xl font-semibold">{title}</h3>
+				<h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+					{title}
+				</h3>
 				<DateChip date={period} />
 			</div>
-			<p className="text-gray-600 dark:text-gray-400 mt-1">{institution}</p>
+			<p className="text-sm text-gray-500 mt-0.5">{institution}</p>
 		</div>
 	);
 }

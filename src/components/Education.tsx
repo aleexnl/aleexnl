@@ -5,11 +5,12 @@ import { EducationIcon } from "./icons/EducationIcon";
 
 interface EducationProps {
 	items: EducationType[];
+	title: string;
 }
 
-export function Education({ items }: EducationProps) {
+export function Education({ items, title }: EducationProps) {
 	return (
-		<Card title="Education" icon={<EducationIcon />}>
+		<Card title={title} icon={<EducationIcon />}>
 			<div className="space-y-8">
 				{items.map((item) => (
 					<EducationItem key={item.title} {...item} />

@@ -4,7 +4,7 @@ import { connectItems } from "../fixtures/connect";
 
 describe("Connect", () => {
 	it("renders connect section with social links", () => {
-		render(<Connect items={connectItems} />);
+		render(<Connect items={connectItems} title="Connect" />);
 
 		expect(
 			screen.getByRole("heading", { name: /Connect/i }),

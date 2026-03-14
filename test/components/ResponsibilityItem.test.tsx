@@ -9,9 +9,9 @@ describe("ResponsibilityItem", () => {
 		expect(screen.getByText(mockResponsibility)).toBeInTheDocument();
 	});
 
-	it("renders with bullet point", () => {
+	it("renders with dash marker", () => {
 		render(<ResponsibilityItem responsibility={mockResponsibility} />);
-		expect(screen.getByText("•")).toBeInTheDocument();
+		expect(screen.getByText("–")).toBeInTheDocument();
 	});
 
 	it("has correct list item structure", () => {

@@ -8,9 +8,9 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ title, icon, children }) => {
 	return (
-		<div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-			<h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center gap-2">
-				{icon && <span className="text-blue-500">{icon}</span>}
+		<div>
+			<h2 className="text-xs uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+				{icon && <span>{icon}</span>}
 				{title}
 			</h2>
 			{children}

@@ -19,17 +19,13 @@ describe("Card", () => {
 		expect(screen.getByTestId("test-icon")).toBeInTheDocument();
 	});
 
-	it("renders with correct styling classes", () => {
-		const { container } = render(<Card {...defaultProps} />);
-		const cardContainer = container.firstChild as HTMLElement;
-
-		expect(cardContainer).toHaveClass(
-			"bg-white",
-			"dark:bg-gray-800",
-			"rounded-2xl",
-			"shadow-sm",
-			"hover:shadow-md",
-			"transition-shadow",
+	it("renders title with uppercase tracking style", () => {
+		render(<Card {...defaultProps} />);
+		const heading = screen.getByRole("heading", { level: 2 });
+		expect(heading).toHaveClass(
+			"uppercase",
+			"tracking-widest",
+			"text-gray-400",
 		);
 	});
 });

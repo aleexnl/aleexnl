@@ -5,12 +5,13 @@ import { ConnectIcon } from "./icons/ConnectIcon";
 
 interface ConnectProps {
 	items: ConnectItemType[];
+	title: string;
 }
 
-export const Connect = ({ items }: ConnectProps) => {
+export const Connect = ({ items, title }: ConnectProps) => {
 	return (
-		<Card title="Connect" icon={<ConnectIcon />}>
-			<ul className="space-y-4">
+		<Card title={title} icon={<ConnectIcon />}>
+			<ul className="space-y-3">
 				{items.map((item) => (
 					<ConnectItem key={item.href} {...item} />
 				))}

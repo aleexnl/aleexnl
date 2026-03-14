@@ -1,4 +1,4 @@
-import type React from "react";
+import { getTranslations } from "next-intl/server";
 import type { Experience as ExperienceType } from "../types/experience";
 import { Card } from "./Card";
 import { ExperienceItem } from "./ExperienceItem";
@@ -8,14 +8,22 @@ interface ExperienceProps {
 	items: ExperienceType[];
 }
 
-export const Experience: React.FC<ExperienceProps> = ({ items }) => {
+export async function Experience({ items }: ExperienceProps) {
+	const t = await getTranslations("experience");
+	const tSections = await getTranslations("sections");
+
 	return (
-		<Card title="Experience" icon={<ExperienceIcon />}>
+		<Card title={tSections("experience")} icon={<ExperienceIcon />}>
 			<div className="space-y-8">
 				{items.map((experience) => (
-					<ExperienceItem key={experience.title} {...experience} />
+					<ExperienceItem
+						key={experience.title}
+						{...experience}
+						expandLabel={t("expandLabel")}
+						collapseLabel={t("collapseLabel")}
+					/>
 				))}
 			</div>
 		</Card>
 	);
-};
+}
