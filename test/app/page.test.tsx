@@ -30,8 +30,10 @@ vi.mock("../../src/components/GithubProjects", () => ({
 }));
 
 vi.mock("../../src/components/LocaleSwitcher", () => ({
-	LocaleSwitcher: () => (
-		<div data-testid="locale-switcher">Locale Switcher Mock</div>
+	LocaleSwitcher: ({ locale }: { locale: string }) => (
+		<div data-testid="locale-switcher" data-locale={locale}>
+			Locale Switcher Mock
+		</div>
 	),
 }));
 
@@ -60,6 +62,24 @@ describe("Home Page", () => {
 		expect(screen.getByTestId("languages-component")).toBeInTheDocument();
 	});
 
+	it("renders the locale switcher with current locale", async () => {
+		const HomeComponent = await Home({ params });
+		render(HomeComponent);
+
+		const switcher = screen.getByTestId("locale-switcher");
+		expect(switcher).toBeInTheDocument();
+		expect(switcher).toHaveAttribute("data-locale", "en");
+	});
+
+	it("renders the github projects section inside a suspense boundary", async () => {
+		const HomeComponent = await Home({ params });
+		render(HomeComponent);
+
+		expect(
+			screen.getByTestId("github-projects-component"),
+		).toBeInTheDocument();
+	});
+
 	it("renders footer with current year", async () => {
 		const HomeComponent = await Home({ params });
 		render(HomeComponent);
@@ -72,5 +92,19 @@ describe("Home Page", () => {
 			);
 		});
 		expect(footerText).toBeInTheDocument();
+	});
+
+	it("renders structured data script tag", async () => {
+		const HomeComponent = await Home({ params });
+		const { container } = render(HomeComponent);
+
+		const scriptTag = container.querySelector(
+			'script[type="application/ld+json"]',
+		);
+		expect(scriptTag).toBeInTheDocument();
+
+		const jsonLd = JSON.parse(scriptTag?.innerHTML ?? "{}");
+		expect(jsonLd["@type"]).toBe("Person");
+		expect(jsonLd.name).toBe("Alejandro Nieto Luque");
 	});
 });
