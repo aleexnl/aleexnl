@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 		return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 	}
 
-	revalidateTag("github-repos");
+	revalidateTag("github-repos", {});
 
 	return NextResponse.json({ revalidated: true, timestamp: Date.now() });
 }

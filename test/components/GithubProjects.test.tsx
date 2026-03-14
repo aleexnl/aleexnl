@@ -1,8 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { GithubProjects } from "../../src/components/GithubProjects";
-
-// Mock fetch globally
-vi.stubGlobal("fetch", vi.fn());
 
 // Mock the async server component
 vi.mock("../../src/components/GithubProjects", () => ({
@@ -31,23 +28,26 @@ describe("GithubProjects", () => {
 	];
 
 	beforeEach(() => {
-		// Reset all mocks before each test
 		vi.resetAllMocks();
 
-		// Setup mock implementation for the server component
-		vi.mocked(GithubProjects).mockImplementation(() => (
-			<div data-testid="github-projects">
-				<div>{mockRepos[0].name}</div>
-				<div>{mockRepos[0].description}</div>
-				<div>{mockRepos[0].language}</div>
-				<div>{mockRepos[0].stargazers_count}</div>
-				<div>{mockRepos[1].name}</div>
-			</div>
-		));
+		vi.mocked(GithubProjects).mockImplementation(
+			// Cast needed: mock is synchronous but component type is async
+			(() => (
+				<div data-testid="github-projects">
+					<div>{mockRepos[0].name}</div>
+					<div>{mockRepos[0].description}</div>
+					<div>{mockRepos[0].language}</div>
+					<div>{mockRepos[0].stargazers_count}</div>
+					<div>{mockRepos[1].name}</div>
+				</div>
+			)) as unknown as typeof GithubProjects,
+		);
 	});
 
 	it("renders the GitHub projects component", async () => {
-		render(<GithubProjects />);
+		await act(async () => {
+			render(<GithubProjects title="Featured Projects" />);
+		});
 
 		expect(screen.getByTestId("github-projects")).toBeInTheDocument();
 		expect(screen.getByText("repo-1")).toBeInTheDocument();
@@ -57,12 +57,15 @@ describe("GithubProjects", () => {
 	});
 
 	it("handles empty repos gracefully", async () => {
-		// Mock the server component to return a fallback message
-		vi.mocked(GithubProjects).mockImplementation(() => (
-			<div data-testid="github-projects-empty">No projects available.</div>
-		));
+		vi.mocked(GithubProjects).mockImplementation(
+			(() => (
+				<div data-testid="github-projects-empty">No projects available.</div>
+			)) as unknown as typeof GithubProjects,
+		);
 
-		render(<GithubProjects />);
+		await act(async () => {
+			render(<GithubProjects title="Featured Projects" />);
+		});
 
 		expect(screen.getByTestId("github-projects-empty")).toBeInTheDocument();
 		expect(screen.getByText("No projects available.")).toBeInTheDocument();

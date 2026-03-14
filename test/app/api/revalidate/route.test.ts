@@ -34,7 +34,7 @@ describe("POST /api/revalidate", () => {
 		const response = await POST(request as never);
 
 		expect(response.status).toBe(200);
-		expect(revalidateTag).toHaveBeenCalledWith("github-repos");
+		expect(revalidateTag).toHaveBeenCalledWith("github-repos", {});
 
 		const body = await response.json();
 		expect(body.revalidated).toBe(true);
