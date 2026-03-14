@@ -24,7 +24,7 @@ describe("ExperienceItem", () => {
 		render(<ExperienceItem {...mockProps} />);
 
 		const panel = document.querySelector("section");
-		expect(panel).toHaveAttribute("hidden");
+		expect(panel).toHaveClass("grid-rows-[0fr]");
 
 		const toggle = screen.getByRole("button");
 		expect(toggle).toHaveAttribute("aria-expanded", "false");
@@ -55,7 +55,7 @@ describe("ExperienceItem", () => {
 		expect(toggle).toHaveAttribute("aria-expanded", "false");
 		const panelId = toggle.getAttribute("aria-controls");
 		const panel = panelId ? document.getElementById(panelId) : null;
-		expect(panel).toHaveAttribute("hidden");
+		expect(panel).toHaveClass("grid-rows-[0fr]");
 	});
 
 	it("renders with correct timeline styling", () => {
