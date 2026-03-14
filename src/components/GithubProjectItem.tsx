@@ -1,16 +1,34 @@
-interface GithubRepo {
-	name: string;
-	description: string | null;
-	html_url: string;
-	language: string | null;
-	stargazers_count: number;
-}
+import type { GithubRepo } from "../types/github";
+
+// Source: https://github.com/ozh/github-colors
+const LANGUAGE_COLORS: Record<string, string> = {
+	TypeScript: "#3178c6",
+	JavaScript: "#f1e05a",
+	"C#": "#178600",
+	Python: "#3572A5",
+	Java: "#b07219",
+	Kotlin: "#A97BFF",
+	Swift: "#F05138",
+	Go: "#00ADD8",
+	Rust: "#dea584",
+	Ruby: "#701516",
+	PHP: "#4F5D95",
+	HTML: "#e34c26",
+	CSS: "#563d7c",
+	Shell: "#89e051",
+	Dart: "#00B4AB",
+	Vue: "#41b883",
+};
 
 interface GithubProjectItemProps {
 	repo: GithubRepo;
 }
 
 export function GithubProjectItem({ repo }: GithubProjectItemProps) {
+	const langColor = repo.language
+		? (LANGUAGE_COLORS[repo.language] ?? "#6b7280")
+		: null;
+
 	return (
 		<a
 			href={repo.html_url}
@@ -27,9 +45,12 @@ export function GithubProjectItem({ repo }: GithubProjectItemProps) {
 					{repo.description}
 				</p>
 				<div className="flex items-center justify-between text-xs mt-4">
-					{repo.language && (
+					{langColor && repo.language && (
 						<span className="flex items-center text-gray-400">
-							<span className="w-2 h-2 rounded-full bg-gray-400 mr-1" />
+							<span
+								className="w-2 h-2 rounded-full mr-1"
+								style={{ backgroundColor: langColor }}
+							/>
 							{repo.language}
 						</span>
 					)}
