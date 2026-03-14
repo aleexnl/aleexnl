@@ -6,12 +6,13 @@ import { LanguageItem } from "./LanguageItem";
 
 interface LanguagesProps {
 	items: Language[];
+	title: string;
 }
 
-export const Languages: React.FC<LanguagesProps> = ({ items }) => {
+export const Languages: React.FC<LanguagesProps> = ({ items, title }) => {
 	return (
-		<Card title="Languages" icon={<LanguagesIcon />}>
-			<ul className="space-y-3 text-gray-700 dark:text-gray-300">
+		<Card title={title} icon={<LanguagesIcon />}>
+			<ul className="space-y-3">
 				{items.map((language) => (
 					<LanguageItem
 						key={language.name}

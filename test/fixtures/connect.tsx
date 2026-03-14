@@ -18,6 +18,5 @@ export const connectItems: ConnectItem[] = [
 		href: "https://github.com/aleexnl",
 		name: "GitHub",
 		icon: <GitHubIcon />,
-		hoverColor: { light: "gray-900", dark: "white" },
 	},
 ];

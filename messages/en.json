@@ -1,0 +1,88 @@
+{
+	"meta": {
+		"title": "Alejandro - Software Developer",
+		"description": "Experienced .NET software developer specializing in building scalable web applications, APIs, and enterprise solutions using C#, ASP.NET, and Microsoft technologies."
+	},
+	"nav": {
+		"skipToContent": "Skip to content",
+		"languageSwitcher": "Language"
+	},
+	"home": {
+		"tagline": "Software Developer",
+		"personalStatement": "Motivated and adaptable professional with a strong willingness to learn and take on new challenges. Quick to adjust to changing environments and committed to teamwork as a key factor in achieving goals, fostering growth, and learning from others."
+	},
+	"sections": {
+		"experience": "Experience",
+		"education": "Education",
+		"skills": "Skills",
+		"languages": "Languages",
+		"connect": "Connect",
+		"featuredProjects": "Featured Projects",
+		"personalStatement": "Personal Statement"
+	},
+	"experience": {
+		"expandLabel": "Show responsibilities",
+		"collapseLabel": "Hide responsibilities",
+		"items": [
+			{
+				"title": "Fullstack Developer",
+				"period": "May 2022 - Present",
+				"company": "Vueling, Viladecans",
+				"responsibilities": [
+					"Developed and maintained REST API services using .NET Core and .NET Framework",
+					"Built mobile applications with Xamarin framework",
+					"Collaborated in agile teams following the SCRUM methodology"
+				]
+			},
+			{
+				"title": "Web Applications Developer",
+				"period": "October 2020 - May 2022",
+				"company": "tradEAsy, Cornellá de Llobregat, Barcelona",
+				"responsibilities": [
+					"Developed frontend applications using React",
+					"Built backend services with NodeJS (TypeScript, Sequelize & Express)",
+					"Managed version control with Git and automated CI/CD using GitHub Actions",
+					"Administered MySQL databases"
+				]
+			},
+			{
+				"title": "IT Services Technician",
+				"period": "November 2018 - May 2021",
+				"company": "Okatent, Olesa de Montserrat, Barcelona",
+				"responsibilities": [
+					"Maintained and updated servers, services, and devices across departments",
+					"Repaired damaged devices and implemented new technologies and software"
+				]
+			}
+		]
+	},
+	"education": {
+		"items": [
+			{
+				"title": ".NET Training",
+				"institution": "Vueling University",
+				"period": "2022"
+			},
+			{
+				"title": "Diploma in Web Application Development (EQF Level 5)",
+				"institution": "Institut Esteve Terradas i Illa",
+				"period": "2019 - 2021"
+			},
+			{
+				"title": "Diploma in Microcomputer Systems and Networking (EQF Level 4)",
+				"institution": "Institut Daniel Blanxart",
+				"period": "2017 - 2019"
+			}
+		]
+	},
+	"languages": {
+		"items": [
+			{ "name": "Spanish", "level": "Native" },
+			{ "name": "Catalan", "level": "Native" },
+			{ "name": "English", "level": "Fluent" }
+		]
+	},
+	"footer": {
+		"copyright": "Portfolio"
+	}
+}

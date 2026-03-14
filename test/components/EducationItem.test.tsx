@@ -16,30 +16,23 @@ describe("EducationItem", () => {
 		expect(getByText(defaultProps.period)).toBeInTheDocument();
 	});
 
-	it("renders with correct styling elements", () => {
-		const { getByText, container } = render(
-			<EducationItem {...defaultProps} />,
-		);
+	it("renders with timeline styling", () => {
+		const { container } = render(<EducationItem {...defaultProps} />);
 
-		// Check for main container styling
 		const mainContainer = container.firstChild as HTMLElement;
 		expect(mainContainer).toHaveClass(
 			"relative",
 			"pl-8",
-			"border-l-2",
-			"border-blue-100",
-			"dark:border-blue-900",
+			"border-l",
+			"border-gray-200",
 		);
 
-		// Check for period having the pill/badge style
-		const periodElement = getByText(defaultProps.period);
-		expect(periodElement).toHaveClass(
-			"bg-blue-50",
-			"dark:bg-blue-900/30",
-			"text-blue-700",
-			"dark:text-blue-300",
-			"px-3",
-			"py-1",
+		const timelineDot = mainContainer.querySelector("div:first-child");
+		expect(timelineDot).toHaveClass(
+			"absolute",
+			"w-2",
+			"h-2",
+			"bg-gray-400",
 			"rounded-full",
 		);
 	});

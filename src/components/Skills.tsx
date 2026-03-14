@@ -6,12 +6,13 @@ import { SkillItem } from "./SkillItem";
 
 interface SkillsProps {
 	items: Skill[];
+	title: string;
 }
 
-export const Skills: React.FC<SkillsProps> = ({ items }) => {
+export const Skills: React.FC<SkillsProps> = ({ items, title }) => {
 	return (
-		<Card title="Skills" icon={<SkillsIcon />}>
-			<div className="flex flex-wrap gap-2">
+		<Card title={title} icon={<SkillsIcon />}>
+			<div className="flex flex-wrap gap-3">
 				{items.map((skill) => (
 					<SkillItem key={skill.name} icon={skill.icon}>
 						{skill.name}

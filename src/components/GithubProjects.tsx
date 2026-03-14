@@ -12,13 +12,14 @@ export interface GithubRepo {
 
 interface GithubProjectsProps {
 	repos: GithubRepo[];
+	title: string;
 }
 
-export function GithubProjects({ repos }: GithubProjectsProps) {
+export function GithubProjects({ repos, title }: GithubProjectsProps) {
 	if (repos.length === 0) return null;
 
 	return (
-		<Card title="Featured Projects" icon={<ProjectsIcon />}>
+		<Card title={title} icon={<ProjectsIcon />}>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				{repos.map((repo) => (
 					<GithubProjectItem key={repo.name} repo={repo} />

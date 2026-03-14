@@ -8,8 +8,8 @@ export const ResponsibilityItem: React.FC<ResponsibilityItemProps> = ({
 	responsibility,
 }) => {
 	return (
-		<li className="flex items-start">
-			<span className="text-blue-500 mr-2">•</span>
+		<li className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+			<span className="text-gray-400 mr-2 select-none">–</span>
 			{responsibility}
 		</li>
 	);

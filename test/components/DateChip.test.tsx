@@ -10,19 +10,10 @@ describe("DateChip", () => {
 		expect(screen.getByText(formattedTestDate)).toBeInTheDocument();
 	});
 
-	it("renders with correct styling classes", () => {
+	it("renders with minimal styling", () => {
 		const { container } = render(<DateChip date={testDate} />);
 		const chipElement = container.firstChild as HTMLElement;
 
-		expect(chipElement).toHaveClass(
-			"text-sm",
-			"bg-blue-50",
-			"dark:bg-blue-900/30",
-			"text-blue-700",
-			"dark:text-blue-300",
-			"px-3",
-			"py-1",
-			"rounded-full",
-		);
+		expect(chipElement).toHaveClass("text-xs", "text-gray-400");
 	});
 });
