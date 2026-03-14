@@ -1,23 +1,16 @@
+import { getGithubRepos } from "../lib/github";
 import { Card } from "./Card";
 import { GithubProjectItem } from "./GithubProjectItem";
 import { ProjectsIcon } from "./icons/ProjectsIcon";
 
-export interface GithubRepo {
-	name: string;
-	description: string | null;
-	html_url: string;
-	language: string | null;
-	stargazers_count: number;
-	fork: boolean;
-}
-
 interface GithubProjectsProps {
-	repos: GithubRepo[];
 	title: string;
 	emptyLabel?: string;
 }
 
-export function GithubProjects({ repos, title, emptyLabel }: GithubProjectsProps) {
+export async function GithubProjects({ title, emptyLabel }: GithubProjectsProps) {
+	const repos = await getGithubRepos();
+
 	return (
 		<Card title={title} icon={<ProjectsIcon />}>
 			{repos.length === 0 ? (

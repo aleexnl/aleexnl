@@ -1,5 +1,5 @@
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-import { z } from "zod";
 import { Card } from "../../components/Card";
 import { Connect } from "../../components/Connect";
 import { Education } from "../../components/Education";
@@ -9,59 +9,23 @@ import { Languages } from "../../components/Languages";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
 import { Skills } from "../../components/Skills";
 import { connectItems, skillItems } from "../../data/static-data";
+import { LocaleDataSchema } from "../../schemas/locale";
 
 export const revalidate = 86400;
 
-const GithubRepoSchema = z.object({
-	name: z.string(),
-	description: z.string().nullable().default(""),
-	html_url: z.string().url(),
-	language: z.string().nullable().default(""),
-	stargazers_count: z.number(),
-	fork: z.boolean(),
-});
-
-async function getGithubRepos(): Promise<z.infer<typeof GithubRepoSchema>[]> {
-	try {
-		const res = await fetch(
-			"https://api.github.com/users/aleexnl/repos?sort=stars&per_page=30",
-			{
-				next: { revalidate: 86400 },
-				headers: { Accept: "application/vnd.github.v3+json" },
-			},
-		);
-		if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
-		const data: unknown = await res.json();
-		const parsed = z.array(GithubRepoSchema).safeParse(data);
-		if (!parsed.success) {
-			console.error("GitHub API response validation failed:", parsed.error);
-			return [];
-		}
-		return parsed.data.filter((repo) => !repo.fork).slice(0, 6);
-	} catch (error) {
-		console.error("Error fetching GitHub repos:", error);
-		return [];
-	}
-}
-
 async function getLocaleData(locale: string) {
-	const messages = (await import(`../../../messages/${locale}.json`)).default;
+	const messages: unknown = (
+		await import(`../../../messages/${locale}.json`)
+	).default;
+	const parsed = LocaleDataSchema.safeParse(messages);
+	if (!parsed.success) {
+		console.error("Locale data validation failed:", parsed.error);
+		return { experience: [], education: [], languages: [] };
+	}
 	return {
-		experience: messages.experience.items as Array<{
-			title: string;
-			period: string;
-			company: string;
-			responsibilities: string[];
-		}>,
-		education: messages.education.items as Array<{
-			title: string;
-			institution: string;
-			period: string;
-		}>,
-		languages: messages.languages.items as Array<{
-			name: string;
-			level: string;
-		}>,
+		experience: parsed.data.experience.items,
+		education: parsed.data.education.items,
+		languages: parsed.data.languages.items,
 	};
 }
 
@@ -71,8 +35,7 @@ export default async function Home({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const [repos, t, tSections, localeData] = await Promise.all([
-		getGithubRepos(),
+	const [t, tSections, localeData] = await Promise.all([
 		getTranslations("home"),
 		getTranslations("sections"),
 		getLocaleData(locale),
@@ -115,14 +78,15 @@ export default async function Home({
 								{t("tagline")}
 							</p>
 						</div>
-						<LocaleSwitcher />
+						<LocaleSwitcher locale={locale} />
 					</div>
 					<div className="mt-8">
-						<GithubProjects
-							repos={repos}
-							title={tSections("featuredProjects")}
-							emptyLabel={tSections("noProjects")}
-						/>
+						<Suspense fallback={<GithubProjectsSkeleton />}>
+							<GithubProjects
+								title={tSections("featuredProjects")}
+								emptyLabel={tSections("noProjects")}
+							/>
+						</Suspense>
 					</div>
 				</header>
 
@@ -156,5 +120,21 @@ export default async function Home({
 				</footer>
 			</main>
 		</>
+	);
+}
+
+function GithubProjectsSkeleton() {
+	return (
+		<div className="rounded-xl border border-gray-100 dark:border-gray-800 p-5">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				{Array.from({ length: 6 }).map((_, i) => (
+					// biome-ignore lint/suspicious/noArrayIndexKey: static skeleton
+					<div
+						key={i}
+						className="h-24 rounded-lg border border-gray-100 dark:border-gray-800 animate-pulse bg-gray-50 dark:bg-gray-900"
+					/>
+				))}
+			</div>
+		</div>
 	);
 }

@@ -1,21 +1,19 @@
-"use client";
-
-import { Link, usePathname } from "../i18n/navigation";
-import { useLocale } from "next-intl";
+import { Link } from "../i18n/navigation";
 
 const locales = ["en", "ca", "es"] as const;
 
-export function LocaleSwitcher() {
-	const locale = useLocale();
-	const pathname = usePathname();
+interface LocaleSwitcherProps {
+	locale: string;
+}
 
+export function LocaleSwitcher({ locale }: LocaleSwitcherProps) {
 	return (
 		<nav aria-label="Language switcher">
 			<ul className="flex gap-2 text-sm">
 				{locales.map((code) => (
 					<li key={code}>
 						<Link
-							href={pathname}
+							href="/"
 							locale={code}
 							aria-current={locale === code ? "true" : undefined}
 							className={
