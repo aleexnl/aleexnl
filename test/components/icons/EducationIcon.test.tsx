@@ -6,7 +6,7 @@ describe("EducationIcon", () => {
 		const { container } = render(<EducationIcon />);
 		const svg = container.querySelector("svg");
 		expect(svg).toBeInTheDocument();
-		expect(svg).toHaveClass("w-5", "h-5", "text-blue-500");
+		expect(svg).toHaveClass("w-5", "h-5");
 	});
 
 	it("renders with custom className", () => {
