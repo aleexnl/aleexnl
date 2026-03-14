@@ -3,7 +3,7 @@ interface EducationIconProps {
 }
 
 export function EducationIcon({
-	className = "w-5 h-5 text-blue-500",
+	className = "w-5 h-5",
 }: EducationIconProps) {
 	return (
 		<svg

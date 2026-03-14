@@ -3,7 +3,7 @@ interface LanguagesIconProps {
 }
 
 export function LanguagesIcon({
-	className = "w-5 h-5 text-blue-500",
+	className = "w-5 h-5",
 }: LanguagesIconProps) {
 	return (
 		<svg
