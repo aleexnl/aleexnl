@@ -5,19 +5,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		{
 			url: "https://aleexnl.vercel.app/en",
 			lastModified: new Date(),
-			changeFrequency: "daily",
+			changeFrequency: "monthly",
 			priority: 1,
 		},
 		{
 			url: "https://aleexnl.vercel.app/ca",
 			lastModified: new Date(),
-			changeFrequency: "daily",
+			changeFrequency: "monthly",
 			priority: 1,
 		},
 		{
 			url: "https://aleexnl.vercel.app/es",
 			lastModified: new Date(),
-			changeFrequency: "daily",
+			changeFrequency: "monthly",
 			priority: 1,
 		},
 	];

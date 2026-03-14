@@ -50,13 +50,15 @@ export const ExperienceItem = ({
 			<section
 				id={panelId}
 				aria-labelledby={`${panelId}-heading`}
-				hidden={!isOpen}
+				className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
 			>
-				<ul className="list-none mt-2 space-y-1.5">
-					{responsibilities.map((r) => (
-						<ResponsibilityItem key={r} responsibility={r} />
-					))}
-				</ul>
+				<div className="overflow-hidden">
+					<ul className="list-none mt-2 space-y-1.5">
+						{responsibilities.map((r) => (
+							<ResponsibilityItem key={r} responsibility={r} />
+						))}
+					</ul>
+				</div>
 			</section>
 		</div>
 	);

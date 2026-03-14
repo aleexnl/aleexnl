@@ -18,12 +18,13 @@ const GithubRepoSchema = z.object({
 	html_url: z.string().url(),
 	language: z.string().nullable().default(""),
 	stargazers_count: z.number(),
+	fork: z.boolean(),
 });
 
 async function getGithubRepos(): Promise<z.infer<typeof GithubRepoSchema>[]> {
 	try {
 		const res = await fetch(
-			"https://api.github.com/users/aleexnl/repos?sort=stars&per_page=6",
+			"https://api.github.com/users/aleexnl/repos?sort=stars&per_page=30",
 			{
 				next: { revalidate: 86400 },
 				headers: { Accept: "application/vnd.github.v3+json" },
@@ -36,7 +37,7 @@ async function getGithubRepos(): Promise<z.infer<typeof GithubRepoSchema>[]> {
 			console.error("GitHub API response validation failed:", parsed.error);
 			return [];
 		}
-		return parsed.data;
+		return parsed.data.filter((repo) => !repo.fork).slice(0, 6);
 	} catch (error) {
 		console.error("Error fetching GitHub repos:", error);
 		return [];
@@ -89,6 +90,11 @@ export default async function Home({
 			"https://www.linkedin.com/in/alejandro-nieto-luque/",
 			"https://github.com/aleexnl",
 		],
+		knowsLanguage: ["Spanish", "Catalan", "English"],
+		alumniOf: localeData.education.map((edu) => ({
+			"@type": "EducationalOrganization",
+			name: edu.institution,
+		})),
 	};
 
 	return (
@@ -115,6 +121,7 @@ export default async function Home({
 						<GithubProjects
 							repos={repos}
 							title={tSections("featuredProjects")}
+							emptyLabel={tSections("noProjects")}
 						/>
 					</div>
 				</header>

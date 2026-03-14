@@ -1,29 +1,22 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { Link, usePathname } from "../i18n/navigation";
 import { useLocale } from "next-intl";
 
 const locales = ["en", "ca", "es"] as const;
 
 export function LocaleSwitcher() {
 	const locale = useLocale();
-	const router = useRouter();
 	const pathname = usePathname();
-
-	const handleChange = (newLocale: string) => {
-		const segments = pathname.split("/");
-		segments[1] = newLocale;
-		router.push(segments.join("/"));
-	};
 
 	return (
 		<nav aria-label="Language switcher">
 			<ul className="flex gap-2 text-sm">
 				{locales.map((code) => (
 					<li key={code}>
-						<button
-							type="button"
-							onClick={() => handleChange(code)}
+						<Link
+							href={pathname}
+							locale={code}
 							aria-current={locale === code ? "true" : undefined}
 							className={
 								locale === code
@@ -32,7 +25,7 @@ export function LocaleSwitcher() {
 							}
 						>
 							{code.toUpperCase()}
-						</button>
+						</Link>
 					</li>
 				))}
 			</ul>

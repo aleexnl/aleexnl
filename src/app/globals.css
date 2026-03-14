@@ -21,3 +21,43 @@ body {
 	color: var(--foreground);
 	font-family: var(--font-roboto), Arial, sans-serif;
 }
+
+@media print {
+	:root {
+		--background: #ffffff;
+		--foreground: #111111;
+		--muted: #6b7280;
+		--border: #e5e7eb;
+	}
+
+	body {
+		background: white;
+		color: black;
+	}
+
+	nav[aria-label="Language switcher"] {
+		display: none;
+	}
+
+	main {
+		max-width: 100% !important;
+		padding: 0 !important;
+	}
+
+	button[aria-expanded] {
+		display: none;
+	}
+
+	section[id^="exp-"] {
+		display: block !important;
+		grid-template-rows: unset !important;
+	}
+
+	section[id^="exp-"] > div {
+		overflow: visible !important;
+	}
+
+	a[href]::after {
+		content: none;
+	}
+}

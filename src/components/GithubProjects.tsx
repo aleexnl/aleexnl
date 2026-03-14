@@ -8,23 +8,29 @@ export interface GithubRepo {
 	html_url: string;
 	language: string | null;
 	stargazers_count: number;
+	fork: boolean;
 }
 
 interface GithubProjectsProps {
 	repos: GithubRepo[];
 	title: string;
+	emptyLabel?: string;
 }
 
-export function GithubProjects({ repos, title }: GithubProjectsProps) {
-	if (repos.length === 0) return null;
-
+export function GithubProjects({ repos, title, emptyLabel }: GithubProjectsProps) {
 	return (
 		<Card title={title} icon={<ProjectsIcon />}>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{repos.map((repo) => (
-					<GithubProjectItem key={repo.name} repo={repo} />
-				))}
-			</div>
+			{repos.length === 0 ? (
+				<p className="text-sm text-gray-400 dark:text-gray-500">
+					{emptyLabel ?? "No projects available."}
+				</p>
+			) : (
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+					{repos.map((repo) => (
+						<GithubProjectItem key={repo.name} repo={repo} />
+					))}
+				</div>
+			)}
 		</Card>
 	);
 }
