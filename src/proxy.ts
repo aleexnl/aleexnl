@@ -5,10 +5,7 @@ import { routing } from "./i18n/routing";
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-	const response = intlMiddleware(request);
-	response.headers.set("X-Frame-Options", "DENY");
-	response.headers.set("X-Content-Type-Options", "nosniff");
-	return response;
+	return intlMiddleware(request);
 }
 
 export const config = {

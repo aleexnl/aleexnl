@@ -36,6 +36,7 @@ export async function generateMetadata({
 		alternates: {
 			canonical: `https://aleexnl.vercel.app/${locale}`,
 			languages: {
+				"x-default": "https://aleexnl.vercel.app/en",
 				en: "https://aleexnl.vercel.app/en",
 				ca: "https://aleexnl.vercel.app/ca",
 				es: "https://aleexnl.vercel.app/es",
@@ -48,6 +49,12 @@ export async function generateMetadata({
 					locale
 				] ?? "en_US",
 			url: `https://aleexnl.vercel.app/${locale}`,
+			title: t("title"),
+			description: t("description"),
+		},
+		twitter: {
+			card: "summary",
+			creator: "@aleexnl",
 			title: t("title"),
 			description: t("description"),
 		},

@@ -18,6 +18,7 @@
 		"languages": "Idiomes",
 		"connect": "Contacte",
 		"featuredProjects": "Projectes Destacats",
+		"noProjects": "No hi ha projectes disponibles.",
 		"personalStatement": "Presentació Personal"
 	},
 	"experience": {
@@ -84,5 +85,10 @@
 	},
 	"footer": {
 		"copyright": "Portafoli"
+	},
+	"notFound": {
+		"title": "Pàgina no trobada",
+		"description": "Ho sentim, la pàgina que busques no existeix.",
+		"backHome": "Tornar a l'inici"
 	}
 }

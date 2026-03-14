@@ -18,6 +18,7 @@
 		"languages": "Languages",
 		"connect": "Connect",
 		"featuredProjects": "Featured Projects",
+		"noProjects": "No projects available.",
 		"personalStatement": "Personal Statement"
 	},
 	"experience": {
@@ -84,5 +85,10 @@
 	},
 	"footer": {
 		"copyright": "Portfolio"
+	},
+	"notFound": {
+		"title": "Page not found",
+		"description": "Sorry, the page you are looking for does not exist.",
+		"backHome": "Back to home"
 	}
 }

@@ -1,43 +1,42 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { LocaleSwitcher } from "../../src/components/LocaleSwitcher";
 
-const mockPush = vi.fn();
-
-vi.mock("next/navigation", () => ({
-	useRouter: () => ({ push: mockPush }),
+vi.mock("../../src/i18n/navigation", () => ({
 	usePathname: () => "/en",
+	Link: ({
+		href,
+		locale,
+		children,
+		...props
+	}: {
+		href: string;
+		locale: string;
+		children: React.ReactNode;
+		[key: string]: unknown;
+	}) => (
+		<a href={`/${locale}${href === "/" ? "" : href}`} {...props}>
+			{children}
+		</a>
+	),
 }));
 
 describe("LocaleSwitcher", () => {
-	beforeEach(() => {
-		mockPush.mockClear();
-	});
-
-	it("renders all locale buttons", () => {
+	it("renders all locale links", () => {
 		render(<LocaleSwitcher />);
 
-		expect(screen.getByRole("button", { name: "EN" })).toBeInTheDocument();
-		expect(screen.getByRole("button", { name: "CA" })).toBeInTheDocument();
-		expect(screen.getByRole("button", { name: "ES" })).toBeInTheDocument();
+		expect(screen.getByRole("link", { name: "EN" })).toBeInTheDocument();
+		expect(screen.getByRole("link", { name: "CA" })).toBeInTheDocument();
+		expect(screen.getByRole("link", { name: "ES" })).toBeInTheDocument();
 	});
 
 	it("marks active locale with aria-current", () => {
 		render(<LocaleSwitcher />);
 
-		const enButton = screen.getByRole("button", { name: "EN" });
-		expect(enButton).toHaveAttribute("aria-current", "true");
+		const enLink = screen.getByRole("link", { name: "EN" });
+		expect(enLink).toHaveAttribute("aria-current", "true");
 
-		const caButton = screen.getByRole("button", { name: "CA" });
-		expect(caButton).not.toHaveAttribute("aria-current");
-	});
-
-	it("calls router.push with new locale on click", async () => {
-		render(<LocaleSwitcher />);
-
-		await userEvent.click(screen.getByRole("button", { name: "CA" }));
-
-		expect(mockPush).toHaveBeenCalledWith("/ca");
+		const caLink = screen.getByRole("link", { name: "CA" });
+		expect(caLink).not.toHaveAttribute("aria-current");
 	});
 
 	it("has accessible nav label", () => {

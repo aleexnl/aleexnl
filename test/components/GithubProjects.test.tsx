@@ -18,6 +18,7 @@ describe("GithubProjects", () => {
 			html_url: "https://github.com/test/repo1",
 			language: "TypeScript",
 			stargazers_count: 10,
+			fork: false,
 		},
 		{
 			name: "repo-2",
@@ -25,6 +26,7 @@ describe("GithubProjects", () => {
 			html_url: "https://github.com/test/repo2",
 			language: "JavaScript",
 			stargazers_count: 20,
+			fork: false,
 		},
 	];
 
@@ -55,12 +57,14 @@ describe("GithubProjects", () => {
 	});
 
 	it("handles empty repos gracefully", async () => {
-		// Mock the server component to return null (no repos)
-		vi.mocked(GithubProjects).mockImplementation(() => null);
+		// Mock the server component to return a fallback message
+		vi.mocked(GithubProjects).mockImplementation(() => (
+			<div data-testid="github-projects-empty">No projects available.</div>
+		));
 
-		const { container } = render(<GithubProjects />);
+		render(<GithubProjects />);
 
-		// Component should return null when no repos
-		expect(container.firstChild).toBeNull();
+		expect(screen.getByTestId("github-projects-empty")).toBeInTheDocument();
+		expect(screen.getByText("No projects available.")).toBeInTheDocument();
 	});
 });

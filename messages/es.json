@@ -18,6 +18,7 @@
 		"languages": "Idiomas",
 		"connect": "Contacto",
 		"featuredProjects": "Proyectos Destacados",
+		"noProjects": "No hay proyectos disponibles.",
 		"personalStatement": "Presentación Personal"
 	},
 	"experience": {
@@ -84,5 +85,10 @@
 	},
 	"footer": {
 		"copyright": "Portafolio"
+	},
+	"notFound": {
+		"title": "Página no encontrada",
+		"description": "Lo sentimos, la página que buscas no existe.",
+		"backHome": "Volver al inicio"
 	}
 }
