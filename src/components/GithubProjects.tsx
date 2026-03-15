@@ -8,7 +8,10 @@ interface GithubProjectsProps {
 	emptyLabel?: string;
 }
 
-export async function GithubProjects({ title, emptyLabel }: GithubProjectsProps) {
+export async function GithubProjects({
+	title,
+	emptyLabel,
+}: GithubProjectsProps) {
 	const repos = await getGithubRepos();
 
 	return (

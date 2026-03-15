@@ -2,9 +2,7 @@ interface EducationIconProps {
 	className?: string;
 }
 
-export function EducationIcon({
-	className = "w-5 h-5",
-}: EducationIconProps) {
+export function EducationIcon({ className = "w-5 h-5" }: EducationIconProps) {
 	return (
 		<svg
 			className={className}

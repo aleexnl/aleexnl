@@ -1,8 +1,8 @@
 import {
-	LocaleDataSchema,
-	ExperienceItemSchema,
 	EducationItemSchema,
+	ExperienceItemSchema,
 	LanguageItemSchema,
+	LocaleDataSchema,
 } from "../../src/schemas/locale";
 
 describe("ExperienceItemSchema", () => {

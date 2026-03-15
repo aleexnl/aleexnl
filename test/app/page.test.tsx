@@ -75,9 +75,7 @@ describe("Home Page", () => {
 		const HomeComponent = await Home({ params });
 		render(HomeComponent);
 
-		expect(
-			screen.getByTestId("github-projects-component"),
-		).toBeInTheDocument();
+		expect(screen.getByTestId("github-projects-component")).toBeInTheDocument();
 	});
 
 	it("renders footer with current year", async () => {

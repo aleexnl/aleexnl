@@ -29,10 +29,7 @@ describe("GithubProjectItem", () => {
 		render(<GithubProjectItem repo={mockRepo} />);
 
 		const link = screen.getByRole("link");
-		expect(link).toHaveAttribute(
-			"aria-label",
-			"test-repo (opens in new tab)",
-		);
+		expect(link).toHaveAttribute("aria-label", "test-repo (opens in new tab)");
 	});
 
 	it("handles repository without language", () => {
