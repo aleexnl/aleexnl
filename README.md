@@ -14,7 +14,7 @@ I'm a dedicated **Frontend Developer** specializing in **Android native apps**, 
   <a href="https://www.instagram.com/aleexnl">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/>
   </a>
-  <a href="https://aleexnl.vercel.app/">
+  <a href="https://aleexnl.com/">
     <img src="https://img.shields.io/badge/Portfolio-100000?style=for-the-badge&logo=About.me&logoColor=white" alt="Portfolio"/>
   </a>
 </p>

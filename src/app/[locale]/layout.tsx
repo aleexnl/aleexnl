@@ -46,12 +46,12 @@ export async function generateMetadata({
 		},
 		manifest: "/site.webmanifest",
 		alternates: {
-			canonical: `https://aleexnl.vercel.app/${locale}`,
+			canonical: `https://aleexnl.com/${locale}`,
 			languages: {
-				"x-default": "https://aleexnl.vercel.app/en",
-				en: "https://aleexnl.vercel.app/en",
-				ca: "https://aleexnl.vercel.app/ca",
-				es: "https://aleexnl.vercel.app/es",
+				"x-default": "https://aleexnl.com/en",
+				en: "https://aleexnl.com/en",
+				ca: "https://aleexnl.com/ca",
+				es: "https://aleexnl.com/es",
 			},
 		},
 		openGraph: {
@@ -60,7 +60,7 @@ export async function generateMetadata({
 				({ en: "en_US", ca: "ca_ES", es: "es_ES" } as Record<string, string>)[
 					locale
 				] ?? "en_US",
-			url: `https://aleexnl.vercel.app/${locale}`,
+			url: `https://aleexnl.com/${locale}`,
 			title: t("title"),
 			description: t("description"),
 		},
