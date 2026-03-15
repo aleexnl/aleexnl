@@ -34,12 +34,12 @@ export function GithubProjectItem({ repo }: GithubProjectItemProps) {
 			href={repo.html_url}
 			target="_blank"
 			rel="noopener noreferrer"
-			aria-label={`${repo.name} (opens in new tab)`}
 			className="block h-full p-4 border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-600 transition-colors rounded-lg"
 		>
 			<div className="flex flex-col h-full">
 				<h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
 					{repo.name}
+					<span className="sr-only"> (opens in new tab)</span>
 				</h3>
 				<p className="text-sm text-gray-500 dark:text-gray-400 flex-grow">
 					{repo.description}

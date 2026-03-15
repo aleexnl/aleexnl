@@ -36,7 +36,7 @@ export const ExperienceItem = ({
 				</h3>
 				<DateChip date={period} />
 			</div>
-			<p className="text-sm text-gray-500 mt-0.5">{company}</p>
+			<p className="text-sm text-gray-400 mt-0.5">{company}</p>
 			<button
 				type="button"
 				aria-expanded={isOpen}
