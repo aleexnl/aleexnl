@@ -20,7 +20,7 @@ export function EducationItem({
 				</h3>
 				<DateChip date={period} />
 			</div>
-			<p className="text-sm text-gray-500 mt-0.5">{institution}</p>
+			<p className="text-sm text-gray-400 mt-0.5">{institution}</p>
 		</div>
 	);
 }

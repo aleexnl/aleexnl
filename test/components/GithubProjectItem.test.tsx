@@ -25,11 +25,10 @@ describe("GithubProjectItem", () => {
 		expect(link).toHaveAttribute("rel", "noopener noreferrer");
 	});
 
-	it("renders accessible aria-label with repo name", () => {
+	it("renders accessible sr-only opens in new tab text", () => {
 		render(<GithubProjectItem repo={mockRepo} />);
 
-		const link = screen.getByRole("link");
-		expect(link).toHaveAttribute("aria-label", "test-repo (opens in new tab)");
+		expect(screen.getByText("(opens in new tab)")).toBeInTheDocument();
 	});
 
 	it("handles repository without language", () => {
