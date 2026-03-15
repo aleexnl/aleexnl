@@ -1,5 +1,5 @@
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 import { Card } from "../../components/Card";
 import { Connect } from "../../components/Connect";
 import { Education } from "../../components/Education";
@@ -14,9 +14,8 @@ import { LocaleDataSchema } from "../../schemas/locale";
 export const revalidate = 86400;
 
 async function getLocaleData(locale: string) {
-	const messages: unknown = (
-		await import(`../../../messages/${locale}.json`)
-	).default;
+	const messages: unknown = (await import(`../../../messages/${locale}.json`))
+		.default;
 	const parsed = LocaleDataSchema.safeParse(messages);
 	if (!parsed.success) {
 		console.error("Locale data validation failed:", parsed.error);
@@ -48,7 +47,7 @@ export default async function Home({
 		"@type": "Person",
 		name: "Alejandro Nieto Luque",
 		jobTitle: t("tagline"),
-		url: `https://aleexnl.vercel.app/${locale}`,
+		url: `https://aleexnl.com/${locale}`,
 		sameAs: [
 			"https://www.linkedin.com/in/alejandro-nieto-luque/",
 			"https://github.com/aleexnl",
@@ -127,10 +126,9 @@ function GithubProjectsSkeleton() {
 	return (
 		<div className="rounded-xl border border-gray-100 dark:border-gray-800 p-5">
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{Array.from({ length: 6 }).map((_, i) => (
-					// biome-ignore lint/suspicious/noArrayIndexKey: static skeleton
+				{["a", "b", "c", "d", "e", "f"].map((id) => (
 					<div
-						key={i}
+						key={`project-skeleton-${id}`}
 						className="h-24 rounded-lg border border-gray-100 dark:border-gray-800 animate-pulse bg-gray-50 dark:bg-gray-900"
 					/>
 				))}

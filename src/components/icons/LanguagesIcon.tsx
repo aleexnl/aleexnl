@@ -2,9 +2,7 @@ interface LanguagesIconProps {
 	className?: string;
 }
 
-export function LanguagesIcon({
-	className = "w-5 h-5",
-}: LanguagesIconProps) {
+export function LanguagesIcon({ className = "w-5 h-5" }: LanguagesIconProps) {
 	return (
 		<svg
 			className={className}

@@ -78,9 +78,7 @@ describe("getGithubRepos", () => {
 	});
 
 	it("returns empty array when API responds with non-ok status", async () => {
-		vi.mocked(fetch).mockResolvedValueOnce(
-			new Response(null, { status: 403 }),
-		);
+		vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 403 }));
 
 		const repos = await getGithubRepos();
 		expect(repos).toEqual([]);

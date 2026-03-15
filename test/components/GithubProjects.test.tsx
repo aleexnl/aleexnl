@@ -57,11 +57,9 @@ describe("GithubProjects", () => {
 	});
 
 	it("handles empty repos gracefully", async () => {
-		vi.mocked(GithubProjects).mockImplementation(
-			(() => (
-				<div data-testid="github-projects-empty">No projects available.</div>
-			)) as unknown as typeof GithubProjects,
-		);
+		vi.mocked(GithubProjects).mockImplementation((() => (
+			<div data-testid="github-projects-empty">No projects available.</div>
+		)) as unknown as typeof GithubProjects);
 
 		await act(async () => {
 			render(<GithubProjects title="Featured Projects" />);
