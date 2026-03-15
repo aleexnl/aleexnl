@@ -27,14 +27,10 @@ describe("ConnectItem", () => {
 		expect(link).toHaveAttribute("rel", "noopener noreferrer");
 	});
 
-	it("has accessible aria-label", () => {
+	it("has accessible sr-only opens in new tab text", () => {
 		render(<ConnectItem {...defaultProps} />);
 
-		const link = screen.getByRole("link");
-		expect(link).toHaveAttribute(
-			"aria-label",
-			`${defaultProps.name} (opens in new tab)`,
-		);
+		expect(screen.getByText("(opens in new tab)")).toBeInTheDocument();
 	});
 
 	it("displays icon and name", () => {
