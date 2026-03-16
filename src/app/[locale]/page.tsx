@@ -47,7 +47,10 @@ export default async function Home({
 		"@type": "Person",
 		name: "Alejandro Nieto Luque",
 		jobTitle: t("tagline"),
-		url: `https://aleexnl.com/${locale}`,
+		url:
+			locale === "en"
+				? "https://aleexnl.com/"
+				: `https://aleexnl.com/${locale}`,
 		sameAs: [
 			"https://www.linkedin.com/in/alejandro-nieto-luque/",
 			"https://github.com/aleexnl",
