@@ -46,10 +46,13 @@ export async function generateMetadata({
 		},
 		manifest: "/site.webmanifest",
 		alternates: {
-			canonical: `https://aleexnl.com/${locale}`,
+			canonical:
+				locale === "en"
+					? "https://aleexnl.com/"
+					: `https://aleexnl.com/${locale}`,
 			languages: {
-				"x-default": "https://aleexnl.com/en",
-				en: "https://aleexnl.com/en",
+				"x-default": "https://aleexnl.com/",
+				en: "https://aleexnl.com/",
 				ca: "https://aleexnl.com/ca",
 				es: "https://aleexnl.com/es",
 			},
@@ -60,7 +63,10 @@ export async function generateMetadata({
 				({ en: "en_US", ca: "ca_ES", es: "es_ES" } as Record<string, string>)[
 					locale
 				] ?? "en_US",
-			url: `https://aleexnl.com/${locale}`,
+			url:
+				locale === "en"
+					? "https://aleexnl.com/"
+					: `https://aleexnl.com/${locale}`,
 			title: t("title"),
 			description: t("description"),
 		},
