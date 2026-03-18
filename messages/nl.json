@@ -1,0 +1,94 @@
+{
+	"meta": {
+		"title": "Alejandro - Softwareontwikkelaar",
+		"description": "Ervaren .NET-softwareontwikkelaar gespecialiseerd in het bouwen van schaalbare webapplicaties, API's en bedrijfsoplossingen met C#, ASP.NET en Microsoft-technologieën."
+	},
+	"nav": {
+		"skipToContent": "Naar inhoud gaan",
+		"languageSwitcher": "Taal"
+	},
+	"home": {
+		"tagline": "Softwareontwikkelaar",
+		"personalStatement": "Gemotiveerde en aanpasbare professional met een sterke bereidheid om te leren en nieuwe uitdagingen aan te gaan. Snel in het aanpassen aan veranderende omgevingen en toegewijd aan teamwork als sleutelfactor voor het bereiken van doelen, het bevorderen van groei en het leren van anderen."
+	},
+	"sections": {
+		"experience": "Ervaring",
+		"education": "Opleiding",
+		"skills": "Vaardigheden",
+		"languages": "Talen",
+		"connect": "Verbinden",
+		"featuredProjects": "Uitgelichte Projecten",
+		"noProjects": "Geen projecten beschikbaar.",
+		"personalStatement": "Persoonlijke Verklaring"
+	},
+	"experience": {
+		"expandLabel": "Verantwoordelijkheden tonen",
+		"collapseLabel": "Verantwoordelijkheden verbergen",
+		"items": [
+			{
+				"title": "Fullstack Ontwikkelaar",
+				"period": "Mei 2022 - Heden",
+				"company": "Vueling, Viladecans",
+				"responsibilities": [
+					"REST API-services ontwikkeld en onderhouden met .NET Core en .NET Framework",
+					"Mobiele applicaties gebouwd met het Xamarin-framework",
+					"Samengewerkt in agile teams volgens de SCRUM-methodologie"
+				]
+			},
+			{
+				"title": "Ontwikkelaar Webapplicaties",
+				"period": "Oktober 2020 - Mei 2022",
+				"company": "tradEAsy, Cornellá de Llobregat, Barcelona",
+				"responsibilities": [
+					"Frontend-applicaties ontwikkeld met React",
+					"Backend-services gebouwd met NodeJS (TypeScript, Sequelize & Express)",
+					"Versiebeheer beheerd met Git en CI/CD geautomatiseerd met GitHub Actions",
+					"MySQL-databases beheerd"
+				]
+			},
+			{
+				"title": "IT-servicetechnicus",
+				"period": "November 2018 - Mei 2021",
+				"company": "Okatent, Olesa de Montserrat, Barcelona",
+				"responsibilities": [
+					"Servers, services en apparaten onderhouden en bijgewerkt voor alle afdelingen",
+					"Beschadigde apparaten gerepareerd en nieuwe technologieën en software geïmplementeerd"
+				]
+			}
+		]
+	},
+	"education": {
+		"items": [
+			{
+				"title": ".NET Opleiding",
+				"institution": "Vueling University",
+				"period": "2022"
+			},
+			{
+				"title": "Diploma Ontwikkeling van Webapplicaties (EQF Niveau 5)",
+				"institution": "Institut Esteve Terradas i Illa",
+				"period": "2019 - 2021"
+			},
+			{
+				"title": "Diploma Microcomputersystemen en Netwerken (EQF Niveau 4)",
+				"institution": "Institut Daniel Blanxart",
+				"period": "2017 - 2019"
+			}
+		]
+	},
+	"languages": {
+		"items": [
+			{ "name": "Spaans", "level": "Moedertaal" },
+			{ "name": "Catalaans", "level": "Moedertaal" },
+			{ "name": "Engels", "level": "Vloeiend" }
+		]
+	},
+	"footer": {
+		"copyright": "Portfolio"
+	},
+	"notFound": {
+		"title": "Pagina niet gevonden",
+		"description": "Sorry, de pagina die u zoekt bestaat niet.",
+		"backHome": "Terug naar home"
+	}
+}
