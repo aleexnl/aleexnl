@@ -30,9 +30,10 @@
 				"period": "Mayo 2022 - Actualidad",
 				"company": "Vueling, Viladecans",
 				"responsibilities": [
-					"Desarrollo y mantenimiento de servicios REST API con .NET Core y .NET Framework",
-					"Creación de aplicaciones móviles con el framework Xamarin",
-					"Colaboración en equipos ágiles siguiendo la metodología SCRUM"
+					"Desarrollo y mantenimiento de APIs REST y servicios backend con .NET Core y .NET Framework",
+					"Desarrollo Android nativo con Kotlin y creación de aplicaciones móviles con framework Xamarin",
+					"Diseño de soluciones escalables y mantenimiento evolutivo de sistemas",
+					"Colaboración en equipos ágiles SCRUM e implementación de automatización CI/CD"
 				]
 			},
 			{
@@ -78,9 +79,18 @@
 	},
 	"languages": {
 		"items": [
-			{ "name": "Español", "level": "Nativo" },
-			{ "name": "Catalán", "level": "Nativo" },
-			{ "name": "Inglés", "level": "Avanzado" }
+			{
+				"name": "Español",
+				"level": "Nativo"
+			},
+			{
+				"name": "Catalán",
+				"level": "Nativo"
+			},
+			{
+				"name": "Inglés",
+				"level": "Avanzado"
+			}
 		]
 	},
 	"footer": {

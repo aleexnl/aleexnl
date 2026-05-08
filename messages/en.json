@@ -30,9 +30,10 @@
 				"period": "May 2022 - Present",
 				"company": "Vueling, Viladecans",
 				"responsibilities": [
-					"Developed and maintained REST API services using .NET Core and .NET Framework",
-					"Built mobile applications with Xamarin framework",
-					"Collaborated in agile teams following the SCRUM methodology"
+					"Developed and maintained REST API services and backend solutions using .NET Core and .NET Framework",
+					"Built native Android applications with Kotlin and mobile applications with Xamarin framework",
+					"Designed scalable solutions and managed evolutionary maintenance of systems",
+					"Collaborated in agile SCRUM teams and implemented CI/CD automation"
 				]
 			},
 			{
@@ -78,9 +79,18 @@
 	},
 	"languages": {
 		"items": [
-			{ "name": "Spanish", "level": "Native" },
-			{ "name": "Catalan", "level": "Native" },
-			{ "name": "English", "level": "Fluent" }
+			{
+				"name": "Spanish",
+				"level": "Native"
+			},
+			{
+				"name": "Catalan",
+				"level": "Native"
+			},
+			{
+				"name": "English",
+				"level": "Fluent"
+			}
 		]
 	},
 	"footer": {
