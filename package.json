@@ -34,14 +34,14 @@
 		"@types/node": "^25",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
-		"@vitejs/plugin-react": "^6.0.1",
-		"@vitest/coverage-v8": "^4.1.6",
+		"@vitejs/plugin-react": "^6.0.2",
+		"@vitest/coverage-v8": "^4.1.7",
 		"husky": "^9.1.7",
 		"jsdom": "^29.1.1",
 		"tailwindcss": "^4",
 		"typescript": "^6",
-		"vite": "^8.0.13",
-		"vitest": "^4.1.6"
+		"vite": "^8.0.14",
+		"vitest": "^4.1.7"
 	},
 	"packageManager": "yarn@4.13.0",
 	"browserslist": [
