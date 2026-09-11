@@ -43,7 +43,7 @@
 		"vite": "^8.1.5",
 		"vitest": "^4.1.10"
 	},
-	"packageManager": "yarn@4.13.0",
+	"packageManager": "yarn@4.18.0",
 	"browserslist": [
 		"chrome >= 90",
 		"firefox >= 90",
