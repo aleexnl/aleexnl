@@ -18,11 +18,21 @@ test.describe("Home page", () => {
 	test("displays all main sections", async ({ page }) => {
 		await page.goto("/");
 
-		await expect(page.getByText("Experience")).toBeVisible();
-		await expect(page.getByText("Education")).toBeVisible();
-		await expect(page.getByText("Skills")).toBeVisible();
-		await expect(page.getByText("Languages")).toBeVisible();
-		await expect(page.getByText("Connect")).toBeVisible();
+		await expect(
+			page.getByRole("heading", { level: 2, name: "Experience" }),
+		).toBeVisible();
+		await expect(
+			page.getByRole("heading", { level: 2, name: "Education" }),
+		).toBeVisible();
+		await expect(
+			page.getByRole("heading", { level: 2, name: "Skills" }),
+		).toBeVisible();
+		await expect(
+			page.getByRole("heading", { level: 2, name: "Languages" }),
+		).toBeVisible();
+		await expect(
+			page.getByRole("heading", { level: 2, name: "Connect" }),
+		).toBeVisible();
 	});
 
 	test("displays experience items", async ({ page }) => {
