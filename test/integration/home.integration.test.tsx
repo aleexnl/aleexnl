@@ -24,12 +24,10 @@ async function resolveTree(element: ReactNode): Promise<ReactNode> {
 	// If the component is a function (FC or async server component), call it
 	if (typeof element.type === "function") {
 		try {
-			let result = (element.type as (...args: never[]) => unknown)(
-				element.props,
-			);
-			if (result && typeof result === "object" && "then" in result) {
-				result = await result;
-			}
+			const component = element.type as (
+				props: unknown,
+			) => ReactNode | Promise<ReactNode>;
+			const result = await component(element.props);
 			if (isValidElement(result)) {
 				return resolveTree(result);
 			}
