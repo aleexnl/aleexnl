@@ -1,4 +1,4 @@
-import { Link } from "../i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
 const locales = ["en", "ca", "es"] as const;
 
@@ -6,24 +6,23 @@ interface LocaleSwitcherProps {
 	locale: string;
 }
 
-export function LocaleSwitcher({ locale }: LocaleSwitcherProps) {
+export async function LocaleSwitcher({ locale }: LocaleSwitcherProps) {
+	const t = await getTranslations("nav");
+	const names = { en: "English", ca: "Català", es: "Español" };
 	return (
-		<nav aria-label="Language switcher">
-			<ul className="flex gap-2 text-sm">
+		<nav aria-label={t("languageSwitcher")} className="locale-nav">
+			<ul>
 				{locales.map((code) => (
 					<li key={code}>
-						<Link
-							href="/"
-							locale={code}
+						<a
+							href={code === "en" ? "/" : `/${code}`}
+							hrefLang={code}
+							lang={code}
+							aria-label={names[code]}
 							aria-current={locale === code ? "true" : undefined}
-							className={
-								locale === code
-									? "font-semibold text-gray-900 dark:text-white"
-									: "text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-							}
 						>
 							{code.toUpperCase()}
-						</Link>
+						</a>
 					</li>
 				))}
 			</ul>

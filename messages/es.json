@@ -1,11 +1,18 @@
 {
 	"meta": {
-		"title": "Alejandro - Desarrollador de Software",
-		"description": "Desarrollador de software .NET con experiencia en la creación de aplicaciones web escalables, APIs y soluciones empresariales con C#, ASP.NET y tecnologías Microsoft."
+		"title": "Alejandro Nieto Luque — Desarrollador de software",
+		"description": "Alejandro Nieto Luque, desarrollador de software: Android y Kotlin, servicios backend .NET e interfaces web con React. Proyectos y experiencia profesional."
 	},
 	"nav": {
 		"skipToContent": "Saltar al contenido",
-		"languageSwitcher": "Idioma"
+		"languageSwitcher": "Idioma",
+		"work": "Proyectos",
+		"experience": "Experiencia",
+		"about": "Sobre mí",
+		"contact": "Contacto",
+		"primary": "Navegación principal",
+		"menu": "Menú",
+		"close": "Cerrar"
 	},
 	"home": {
 		"tagline": "Desarrollador de Software",
@@ -100,5 +107,118 @@
 		"title": "Página no encontrada",
 		"description": "Lo sentimos, la página que buscas no existe.",
 		"backHome": "Volver al inicio"
+	},
+	"portfolio": {
+		"nav": {
+			"work": "Proyectos",
+			"experience": "Experiencia",
+			"about": "Sobre mí",
+			"contact": "Contacto",
+			"primary": "Navegación principal",
+			"menu": "Menú",
+			"close": "Cerrar"
+		},
+		"hero": {
+			"identity": "Alejandro Nieto Luque",
+			"headline": "Software, creado",
+			"headlineEnd": "con intención.",
+			"intro": "De la pantalla Android a la API que hay detrás. Desarrollo experiencias móviles, servicios backend e interfaces cuidadas.",
+			"discipline": "Desarrollador de software",
+			"stack": "Kotlin / .NET / React",
+			"work": "Explora mis proyectos",
+			"contact": "Hablemos",
+			"note": "Atención al detalle. Visión del sistema completo."
+		},
+		"work": {
+			"title": "Una mirada más cercana",
+			"intro": "Proyectos seleccionados. Distintos retos, el mismo cuidado por cómo funcionan las cosas.",
+			"all": "Todos los repositorios",
+			"source": "Ver código",
+			"live": "Visitar web",
+			"role": "Proyecto personal",
+			"architecture": "Diagrama de arquitectura",
+			"workflow": "Diagrama del flujo",
+			"typography": "Identidad del portfolio",
+			"language": "Lenguaje principal",
+			"library": {
+				"category": "Ingeniería backend",
+				"title": "Los buenos sistemas empiezan con límites claros.",
+				"description": "Una API de catálogo de biblioteca que separa HTTP, reglas de negocio y persistencia. Pensada para la gestión cotidiana de libros.",
+				"decision": "Validación de ISBN normalizados, lecturas paginadas y borrado lógico, con pruebas de dominio.",
+				"visual": "Un lugar para cada capa.",
+				"layer1": "Endpoints HTTP",
+				"layer2": "Reglas de dominio",
+				"layer3": "Persistencia de datos"
+			},
+			"android": {
+				"category": "Herramientas para Android",
+				"title": "Acciones repetitivas. Flujos bien pensados.",
+				"description": "Un editor de escritorio que controla dispositivos Android mediante ADB. Reconocimiento visual, bifurcaciones y reintentos convierten acciones en flujos reutilizables.",
+				"decision": "Las tareas del dispositivo se ejecutan fuera del hilo de interfaz. Las plantillas se almacenan en caché por ejecución, con parada cooperativa y registro limitado.",
+				"visual": "Capturar. Reconocer. Actuar.",
+				"step1": "Capturar",
+				"step2": "Reconocer",
+				"step3": "Actuar"
+			},
+			"portfolio": {
+				"category": "Desarrollo web",
+				"title": "La interfaz también es ingeniería.",
+				"description": "Este portfolio une contenido renderizado en servidor, tres idiomas y un sistema de diseño adaptable. Un espacio cuidado para mi trabajo.",
+				"decision": "Selección explícita de proyectos, datos de GitHub en caché y animaciones CSS nativas para una experiencia ligera y resistente.",
+				"visual": "Creado con intención."
+			}
+		},
+		"career": {
+			"title": "Experiencia que conecta las piezas.",
+			"intro": "De mantener sistemas a construir los servicios e interfaces que las personas utilizan.",
+			"current": "Puesto actual"
+		},
+		"expertise": {
+			"title": "Un sistema. Muchas perspectivas.",
+			"intro": "Trabajo en la conexión entre móvil, backend y web.",
+			"mobile": {
+				"title": "Experiencias móviles",
+				"text": "Android nativo con Kotlin y aplicaciones multiplataforma con Xamarin. Explorando Swift e iOS.",
+				"tools": "Kotlin, Android, Xamarin, Swift"
+			},
+			"backend": {
+				"title": "Servicios y arquitectura",
+				"text": "API REST, lógica de dominio y servicios mantenibles con el ecosistema .NET.",
+				"tools": "C#, .NET Core, .NET Framework, SQL"
+			},
+			"web": {
+				"title": "Interfaces web",
+				"text": "Interfaces React conectadas a servicios TypeScript y datos relacionales.",
+				"tools": "React, TypeScript, Next.js, Node.js"
+			},
+			"delivery": {
+				"title": "Del código a la entrega",
+				"text": "Control de versiones, automatización CI/CD y colaboración en equipos ágiles.",
+				"tools": "Git, GitHub Actions, Azure DevOps, Scrum"
+			}
+		},
+		"about": {
+			"title": "Curioso por naturaleza. Práctico al crear.",
+			"intro": "Me gusta entender cómo encajan las piezas: la interfaz, el servicio que la sostiene y la forma en que un equipo lo entrega.",
+			"education": "Una base sólida.",
+			"languages": "Una conversación en tres idiomas."
+		},
+		"contact": {
+			"title": "Creemos algo bien pensado.",
+			"intro": "¿Un proyecto en mente o un reto de ingeniería del que merezca la pena hablar? Empecemos una conversación.",
+			"email": "Escríbeme",
+			"back": "Volver arriba",
+			"footer": "Diseñado con cuidado. Creado con intención."
+		},
+		"error": {
+			"title": "Algo ha fallado",
+			"description": "Intenta cargar la página de nuevo.",
+			"retry": "Reintentar"
+		}
+	},
+	"error": {
+		"title": "Algo ha fallado",
+		"description": "Intenta cargar la página de nuevo.",
+		"retry": "Reintentar"
 	}
 }

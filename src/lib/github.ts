@@ -13,8 +13,9 @@ const GithubRepoSchema = z.object({
 export async function getGithubRepos(): Promise<GithubRepo[]> {
 	try {
 		const res = await fetch(
-			"https://api.github.com/users/aleexnl/repos?sort=stars&per_page=30",
+			"https://api.github.com/users/aleexnl/repos?sort=full_name&per_page=100",
 			{
+				signal: AbortSignal.timeout(5000),
 				next: { tags: ["github-repos"], revalidate: 86400 },
 				headers: { Accept: "application/vnd.github.v3+json" },
 			},
@@ -26,7 +27,7 @@ export async function getGithubRepos(): Promise<GithubRepo[]> {
 			console.error("GitHub API response validation failed:", parsed.error);
 			return [];
 		}
-		return parsed.data.filter((repo) => !repo.fork).slice(0, 6);
+		return parsed.data.filter((repo) => !repo.fork);
 	} catch (error) {
 		console.error("Error fetching GitHub repos:", error);
 		return [];

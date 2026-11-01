@@ -2,15 +2,20 @@ import "../globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { Manrope } from "next/font/google";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import {
+	getMessages,
+	getTranslations,
+	setRequestLocale,
+} from "next-intl/server";
 import { routing } from "../../i18n/routing";
 
-const roboto = Roboto({
+const manrope = Manrope({
 	subsets: ["latin"],
 	display: "swap",
-	variable: "--font-roboto",
+	variable: "--font-manrope",
 });
 
 export const viewport: Viewport = {
@@ -28,6 +33,8 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
+	if (!hasLocale(routing.locales, locale)) notFound();
+	setRequestLocale(locale);
 	const t = await getTranslations({ locale, namespace: "meta" });
 	return {
 		title: t("title"),
@@ -91,22 +98,21 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
+	if (!hasLocale(routing.locales, locale)) notFound();
+	setRequestLocale(locale);
 	const messages = await getMessages();
 	const tNav = await getTranslations({ locale, namespace: "nav" });
 
 	return (
-		<html lang={locale} className={roboto.variable}>
+		<html lang={locale} className={manrope.variable}>
 			<body>
-				<a
-					href="#main-content"
-					className="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:z-50"
-				>
+				<a href="#main-content" className="skip-link">
 					{tNav("skipToContent")}
 				</a>
-				<NextIntlClientProvider messages={messages}>
+				<NextIntlClientProvider messages={{ error: messages.error }}>
 					<Analytics />
 					<SpeedInsights />
-					<div id="main-content">{children}</div>
+					{children}
 				</NextIntlClientProvider>
 			</body>
 		</html>

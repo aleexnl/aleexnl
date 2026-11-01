@@ -1,11 +1,18 @@
 {
 	"meta": {
-		"title": "Alejandro - Software Developer",
-		"description": "Experienced .NET software developer specializing in building scalable web applications, APIs, and enterprise solutions using C#, ASP.NET, and Microsoft technologies."
+		"title": "Alejandro Nieto Luque — Software developer",
+		"description": "Alejandro Nieto Luque, software developer working across Android and Kotlin, .NET backend services and React web interfaces. Explore projects and professional experience."
 	},
 	"nav": {
 		"skipToContent": "Skip to content",
-		"languageSwitcher": "Language"
+		"languageSwitcher": "Language",
+		"work": "Work",
+		"experience": "Experience",
+		"about": "About",
+		"contact": "Contact",
+		"primary": "Main navigation",
+		"menu": "Menu",
+		"close": "Close"
 	},
 	"home": {
 		"tagline": "Software Developer",
@@ -100,5 +107,118 @@
 		"title": "Page not found",
 		"description": "Sorry, the page you are looking for does not exist.",
 		"backHome": "Back to home"
+	},
+	"portfolio": {
+		"nav": {
+			"work": "Work",
+			"experience": "Experience",
+			"about": "About",
+			"contact": "Contact",
+			"primary": "Main navigation",
+			"menu": "Menu",
+			"close": "Close"
+		},
+		"hero": {
+			"identity": "Alejandro Nieto Luque",
+			"headline": "Software, built",
+			"headlineEnd": "with intention.",
+			"intro": "From the Android screen to the API behind it. I build mobile experiences, backend services and thoughtful interfaces.",
+			"discipline": "Software developer",
+			"stack": "Kotlin / .NET / React",
+			"work": "Explore my work",
+			"contact": "Get in touch",
+			"note": "An eye for the details. A mind for the whole system."
+		},
+		"work": {
+			"title": "A closer look",
+			"intro": "Selected projects. Different problems, the same attention to how things work.",
+			"all": "All repositories",
+			"source": "View source",
+			"live": "Visit website",
+			"role": "Personal project",
+			"architecture": "Architecture overview",
+			"workflow": "Workflow overview",
+			"typography": "Portfolio identity",
+			"language": "Primary language",
+			"library": {
+				"category": "Backend engineering",
+				"title": "Good systems start with clear boundaries.",
+				"description": "A library catalog API that keeps HTTP, business rules and persistence separate. Built around the everyday work of managing books.",
+				"decision": "Normalized ISBN validation, paginated reads and soft deletion, backed by domain tests.",
+				"visual": "A place for every layer.",
+				"layer1": "HTTP endpoints",
+				"layer2": "Domain rules",
+				"layer3": "Data persistence"
+			},
+			"android": {
+				"category": "Android tooling",
+				"title": "Repetitive actions. Deliberate workflows.",
+				"description": "A desktop workflow editor that controls an Android device through ADB. Visual recognition, branching and retries turn individual actions into reusable workflows.",
+				"decision": "Device work runs off the GUI thread. Templates are cached per run, with cooperative stopping and a bounded execution log.",
+				"visual": "Capture. Match. Act.",
+				"step1": "Capture",
+				"step2": "Match",
+				"step3": "Act"
+			},
+			"portfolio": {
+				"category": "Web development",
+				"title": "The interface is part of the engineering.",
+				"description": "This portfolio brings together server-rendered content, three languages and a responsive design system. A small, considered home for my work.",
+				"decision": "Explicit project curation, cached GitHub enrichment and native CSS motion keep the experience resilient and lightweight.",
+				"visual": "Made with intention."
+			}
+		},
+		"career": {
+			"title": "Experience that connects the dots.",
+			"intro": "From keeping systems running to building the services and interfaces people use.",
+			"current": "Current role"
+		},
+		"expertise": {
+			"title": "One system. Many perspectives.",
+			"intro": "I work across the boundaries between mobile, backend and web.",
+			"mobile": {
+				"title": "Mobile experiences",
+				"text": "Native Android with Kotlin and cross-platform applications with Xamarin. Exploring Swift and iOS.",
+				"tools": "Kotlin, Android, Xamarin, Swift"
+			},
+			"backend": {
+				"title": "Services & architecture",
+				"text": "REST APIs, domain logic and maintainable services with the .NET ecosystem.",
+				"tools": "C#, .NET Core, .NET Framework, SQL"
+			},
+			"web": {
+				"title": "Web interfaces",
+				"text": "React interfaces connected to TypeScript services and relational data.",
+				"tools": "React, TypeScript, Next.js, Node.js"
+			},
+			"delivery": {
+				"title": "From code to delivery",
+				"text": "Version control, CI/CD automation and collaboration in agile teams.",
+				"tools": "Git, GitHub Actions, Azure DevOps, Scrum"
+			}
+		},
+		"about": {
+			"title": "Curious by nature. Practical by design.",
+			"intro": "I enjoy understanding how the pieces fit together: the interface, the service behind it and the way a team ships it.",
+			"education": "Built on solid foundations.",
+			"languages": "A conversation in three languages."
+		},
+		"contact": {
+			"title": "Let’s build something considered.",
+			"intro": "Have a project in mind, or an engineering challenge worth talking about? Let’s start a conversation.",
+			"email": "Email me",
+			"back": "Back to top",
+			"footer": "Designed with care. Built with intention."
+		},
+		"error": {
+			"title": "Something went wrong",
+			"description": "Please try loading the page again.",
+			"retry": "Try again"
+		}
+	},
+	"error": {
+		"title": "Something went wrong",
+		"description": "Please try loading the page again.",
+		"retry": "Try again"
 	}
 }

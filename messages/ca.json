@@ -1,11 +1,18 @@
 {
 	"meta": {
-		"title": "Alejandro - Desenvolupador de Software",
-		"description": "Desenvolupador de software .NET amb experiència en la creació d'aplicacions web escalables, APIs i solucions empresarials amb C#, ASP.NET i tecnologies Microsoft."
+		"title": "Alejandro Nieto Luque — Desenvolupador de software",
+		"description": "Alejandro Nieto Luque, desenvolupador de software: Android i Kotlin, serveis backend .NET i interfícies web amb React. Projectes i experiència professional."
 	},
 	"nav": {
 		"skipToContent": "Salta al contingut",
-		"languageSwitcher": "Idioma"
+		"languageSwitcher": "Idioma",
+		"work": "Projectes",
+		"experience": "Experiència",
+		"about": "Sobre mi",
+		"contact": "Contacte",
+		"primary": "Navegació principal",
+		"menu": "Menú",
+		"close": "Tancar"
 	},
 	"home": {
 		"tagline": "Desenvolupador de Software",
@@ -100,5 +107,118 @@
 		"title": "Pàgina no trobada",
 		"description": "Ho sentim, la pàgina que busques no existeix.",
 		"backHome": "Tornar a l'inici"
+	},
+	"portfolio": {
+		"nav": {
+			"work": "Projectes",
+			"experience": "Experiència",
+			"about": "Sobre mi",
+			"contact": "Contacte",
+			"primary": "Navegació principal",
+			"menu": "Menú",
+			"close": "Tancar"
+		},
+		"hero": {
+			"identity": "Alejandro Nieto Luque",
+			"headline": "Software, creat",
+			"headlineEnd": "amb intenció.",
+			"intro": "De la pantalla Android a l’API que hi ha al darrere. Desenvolupo experiències mòbils, serveis backend i interfícies cuidades.",
+			"discipline": "Desenvolupador de software",
+			"stack": "Kotlin / .NET / React",
+			"work": "Explora els projectes",
+			"contact": "Parlem-ne",
+			"note": "Atenció al detall. Visió del sistema complet."
+		},
+		"work": {
+			"title": "Una mirada més propera",
+			"intro": "Projectes seleccionats. Reptes diferents, la mateixa cura per com funcionen les coses.",
+			"all": "Tots els repositoris",
+			"source": "Veure el codi",
+			"live": "Visitar el web",
+			"role": "Projecte personal",
+			"architecture": "Diagrama d’arquitectura",
+			"workflow": "Diagrama del flux",
+			"typography": "Identitat del portafolis",
+			"language": "Llenguatge principal",
+			"library": {
+				"category": "Enginyeria backend",
+				"title": "Els bons sistemes comencen amb límits clars.",
+				"description": "Una API de catàleg de biblioteca que separa HTTP, regles de negoci i persistència. Pensada per a la gestió quotidiana de llibres.",
+				"decision": "Validació d’ISBN normalitzats, lectures paginades i esborrament lògic, amb proves de domini.",
+				"visual": "Un lloc per a cada capa.",
+				"layer1": "Endpoints HTTP",
+				"layer2": "Regles de domini",
+				"layer3": "Persistència de dades"
+			},
+			"android": {
+				"category": "Eines per a Android",
+				"title": "Accions repetitives. Fluxos ben pensats.",
+				"description": "Un editor d’escriptori que controla dispositius Android mitjançant ADB. Reconeixement visual, bifurcacions i reintents converteixen accions en fluxos reutilitzables.",
+				"decision": "Les tasques del dispositiu s’executen fora del fil de la interfície. Les plantilles es desen en memòria cau per execució, amb aturada cooperativa i registre limitat.",
+				"visual": "Capturar. Reconèixer. Actuar.",
+				"step1": "Capturar",
+				"step2": "Reconèixer",
+				"step3": "Actuar"
+			},
+			"portfolio": {
+				"category": "Desenvolupament web",
+				"title": "La interfície també és enginyeria.",
+				"description": "Aquest portafolis uneix contingut renderitzat al servidor, tres idiomes i un sistema de disseny adaptable. Un espai cuidat per a la meva feina.",
+				"decision": "Selecció explícita de projectes, dades de GitHub en memòria cau i animacions CSS natives per a una experiència lleugera i resilient.",
+				"visual": "Creat amb intenció."
+			}
+		},
+		"career": {
+			"title": "Experiència que connecta les peces.",
+			"intro": "De mantenir sistemes a construir els serveis i les interfícies que les persones fan servir.",
+			"current": "Lloc actual"
+		},
+		"expertise": {
+			"title": "Un sistema. Moltes perspectives.",
+			"intro": "Treballo en la connexió entre mòbil, backend i web.",
+			"mobile": {
+				"title": "Experiències mòbils",
+				"text": "Android natiu amb Kotlin i aplicacions multiplataforma amb Xamarin. Explorant Swift i iOS.",
+				"tools": "Kotlin, Android, Xamarin, Swift"
+			},
+			"backend": {
+				"title": "Serveis i arquitectura",
+				"text": "API REST, lògica de domini i serveis mantenibles amb l’ecosistema .NET.",
+				"tools": "C#, .NET Core, .NET Framework, SQL"
+			},
+			"web": {
+				"title": "Interfícies web",
+				"text": "Interfícies React connectades a serveis TypeScript i dades relacionals.",
+				"tools": "React, TypeScript, Next.js, Node.js"
+			},
+			"delivery": {
+				"title": "Del codi al lliurament",
+				"text": "Control de versions, automatització CI/CD i col·laboració en equips àgils.",
+				"tools": "Git, GitHub Actions, Azure DevOps, Scrum"
+			}
+		},
+		"about": {
+			"title": "Curiós per naturalesa. Pràctic en crear.",
+			"intro": "M’agrada entendre com encaixen les peces: la interfície, el servei que la sosté i la manera com un equip ho lliura.",
+			"education": "Una base sòlida.",
+			"languages": "Una conversa en tres idiomes."
+		},
+		"contact": {
+			"title": "Creem una cosa ben pensada.",
+			"intro": "Tens un projecte al cap o un repte d’enginyeria del qual valgui la pena parlar? Comencem una conversa.",
+			"email": "Escriu-me",
+			"back": "Tornar a dalt",
+			"footer": "Dissenyat amb cura. Creat amb intenció."
+		},
+		"error": {
+			"title": "Alguna cosa ha fallat",
+			"description": "Torna a intentar carregar la pàgina.",
+			"retry": "Torna-ho a provar"
+		}
+	},
+	"error": {
+		"title": "Alguna cosa ha fallat",
+		"description": "Torna a intentar carregar la pàgina.",
+		"retry": "Torna-ho a provar"
 	}
 }
