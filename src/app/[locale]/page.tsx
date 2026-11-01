@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { About } from "../../components/About";
 import { Arrow } from "../../components/Arrow";
-import { Education } from "../../components/Education";
+import { Contact } from "../../components/Contact";
 import { Experience } from "../../components/Experience";
+import { Expertise } from "../../components/Expertise";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
 import { Navigation } from "../../components/Navigation";
 import { ProjectShowcase } from "../../components/ProjectShowcase";
@@ -20,9 +22,9 @@ export default async function Home({
 	const { locale } = await params;
 	if (!hasLocale(routing.locales, locale)) notFound();
 	setRequestLocale(locale);
-	const [t, sections, messages] = await Promise.all([
+	const [t, home, messages] = await Promise.all([
 		getTranslations("portfolio"),
-		getTranslations("sections"),
+		getTranslations("home"),
 		import(`../../../messages/${locale}.json`).then((m) => m.default),
 	]);
 	const data = LocaleDataSchema.parse(messages);
@@ -77,6 +79,15 @@ export default async function Home({
 			>
 				<LocaleSwitcher locale={locale} />
 			</Navigation>
+			<noscript>
+				<nav className="shell no-script-nav" aria-label={t("nav.primary")}>
+					{["work", "experience", "about", "contact"].map((id) => (
+						<a key={id} href={`#${id}`}>
+							{t(`nav.${id}`)}
+						</a>
+					))}
+				</nav>
+			</noscript>
 			<main id="main-content" tabIndex={-1}>
 				<section className="hero shell" id="top" aria-labelledby="hero-heading">
 					<div className="hero-identity">
@@ -122,7 +133,7 @@ export default async function Home({
 						</div>
 						<p>{t("work.intro")}</p>
 					</div>
-					<ProjectShowcase limit={1} />
+					<ProjectShowcase />
 					<a
 						className="text-link repository-link"
 						href="https://github.com/aleexnl?tab=repositories"
@@ -131,22 +142,20 @@ export default async function Home({
 						<Arrow diagonal />
 					</a>
 				</section>
-				<section className="shell section-space" id="experience">
+				<section
+					className="shell section-space experience-section"
+					id="experience"
+					aria-labelledby="experience-heading"
+				>
 					<Experience items={data.experience.items} />
 				</section>
-				<section className="shell section-space" id="about">
-					<Education
-						items={data.education.items}
-						title={sections("education")}
-					/>
-				</section>
-				<section className="shell section-space" id="contact">
-					<h2>{t("contact.title")}</h2>
-					<a className="text-link" href="mailto:alex.nieto0027@gmail.com">
-						{t("contact.email")}
-						<Arrow diagonal />
-					</a>
-				</section>
+				<Expertise />
+				<About
+					education={data.education.items}
+					languages={data.languages.items}
+					statement={home("personalStatement")}
+				/>
+				<Contact />
 			</main>
 		</>
 	);

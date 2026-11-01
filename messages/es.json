@@ -5,14 +5,7 @@
 	},
 	"nav": {
 		"skipToContent": "Saltar al contenido",
-		"languageSwitcher": "Idioma",
-		"work": "Proyectos",
-		"experience": "Experiencia",
-		"about": "Sobre mí",
-		"contact": "Contacto",
-		"primary": "Navegación principal",
-		"menu": "Menú",
-		"close": "Cerrar"
+		"languageSwitcher": "Idioma"
 	},
 	"home": {
 		"tagline": "Desarrollador de Software",
@@ -209,16 +202,6 @@
 			"email": "Escríbeme",
 			"back": "Volver arriba",
 			"footer": "Diseñado con cuidado. Creado con intención."
-		},
-		"error": {
-			"title": "Algo ha fallado",
-			"description": "Intenta cargar la página de nuevo.",
-			"retry": "Reintentar"
 		}
-	},
-	"error": {
-		"title": "Algo ha fallado",
-		"description": "Intenta cargar la página de nuevo.",
-		"retry": "Reintentar"
 	}
 }

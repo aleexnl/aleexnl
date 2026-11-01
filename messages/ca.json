@@ -5,14 +5,7 @@
 	},
 	"nav": {
 		"skipToContent": "Salta al contingut",
-		"languageSwitcher": "Idioma",
-		"work": "Projectes",
-		"experience": "Experiència",
-		"about": "Sobre mi",
-		"contact": "Contacte",
-		"primary": "Navegació principal",
-		"menu": "Menú",
-		"close": "Tancar"
+		"languageSwitcher": "Idioma"
 	},
 	"home": {
 		"tagline": "Desenvolupador de Software",
@@ -209,16 +202,6 @@
 			"email": "Escriu-me",
 			"back": "Tornar a dalt",
 			"footer": "Dissenyat amb cura. Creat amb intenció."
-		},
-		"error": {
-			"title": "Alguna cosa ha fallat",
-			"description": "Torna a intentar carregar la pàgina.",
-			"retry": "Torna-ho a provar"
 		}
-	},
-	"error": {
-		"title": "Alguna cosa ha fallat",
-		"description": "Torna a intentar carregar la pàgina.",
-		"retry": "Torna-ho a provar"
 	}
 }

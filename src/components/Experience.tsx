@@ -1,29 +1,27 @@
 import { getTranslations } from "next-intl/server";
 import type { Experience as ExperienceType } from "../types/experience";
-import { Card } from "./Card";
 import { ExperienceItem } from "./ExperienceItem";
-import { ExperienceIcon } from "./icons/ExperienceIcon";
 
-interface ExperienceProps {
-	items: ExperienceType[];
-}
-
-export async function Experience({ items }: ExperienceProps) {
-	const t = await getTranslations("experience");
-	const tSections = await getTranslations("sections");
-
+export async function Experience({ items }: { items: ExperienceType[] }) {
+	const t = await getTranslations("portfolio");
 	return (
-		<Card title={tSections("experience")} icon={<ExperienceIcon />}>
-			<div className="space-y-8">
-				{items.map((experience) => (
+		<>
+			<div className="section-heading">
+				<div>
+					<p className="section-kicker">{t("nav.experience")}</p>
+					<h2 id="experience-heading">{t("career.title")}</h2>
+				</div>
+				<p>{t("career.intro")}</p>
+			</div>
+			<div className="career-list">
+				{items.map((item, index) => (
 					<ExperienceItem
-						key={experience.title}
-						{...experience}
-						expandLabel={t("expandLabel")}
-						collapseLabel={t("collapseLabel")}
+						key={item.company}
+						{...item}
+						current={index === 0 ? t("career.current") : undefined}
 					/>
 				))}
 			</div>
-		</Card>
+		</>
 	);
 }

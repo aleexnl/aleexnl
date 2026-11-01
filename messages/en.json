@@ -5,14 +5,7 @@
 	},
 	"nav": {
 		"skipToContent": "Skip to content",
-		"languageSwitcher": "Language",
-		"work": "Work",
-		"experience": "Experience",
-		"about": "About",
-		"contact": "Contact",
-		"primary": "Main navigation",
-		"menu": "Menu",
-		"close": "Close"
+		"languageSwitcher": "Language"
 	},
 	"home": {
 		"tagline": "Software Developer",
@@ -209,16 +202,6 @@
 			"email": "Email me",
 			"back": "Back to top",
 			"footer": "Designed with care. Built with intention."
-		},
-		"error": {
-			"title": "Something went wrong",
-			"description": "Please try loading the page again.",
-			"retry": "Try again"
 		}
-	},
-	"error": {
-		"title": "Something went wrong",
-		"description": "Please try loading the page again.",
-		"retry": "Try again"
 	}
 }

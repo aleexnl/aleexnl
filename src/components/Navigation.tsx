@@ -20,6 +20,7 @@ export function Navigation({
 	const [open, setOpen] = useState(false);
 	const [active, setActive] = useState("");
 	const toggle = useRef<HTMLButtonElement>(null);
+	const navigation = useRef<HTMLElement>(null);
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -36,6 +37,7 @@ export function Navigation({
 	}, [items]);
 	useEffect(() => {
 		if (!open) return;
+		navigation.current?.querySelector<HTMLAnchorElement>("a")?.focus();
 		const onKey = (event: KeyboardEvent) => {
 			if (event.key === "Escape") {
 				setOpen(false);
@@ -52,6 +54,7 @@ export function Navigation({
 					an<span aria-hidden="true">.</span>
 				</a>
 				<nav
+					ref={navigation}
 					aria-label={label}
 					className={`primary-nav ${open ? "is-open" : ""}`}
 					id="primary-navigation"

@@ -4,12 +4,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import {
-	getMessages,
-	getTranslations,
-	setRequestLocale,
-} from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "../../i18n/routing";
 
 const manrope = Manrope({
@@ -20,8 +16,8 @@ const manrope = Manrope({
 
 export const viewport: Viewport = {
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+		{ media: "(prefers-color-scheme: light)", color: "#f5f6f8" },
+		{ media: "(prefers-color-scheme: dark)", color: "#13171c" },
 	],
 	width: "device-width",
 	initialScale: 1,
@@ -37,6 +33,7 @@ export async function generateMetadata({
 	setRequestLocale(locale);
 	const t = await getTranslations({ locale, namespace: "meta" });
 	return {
+		metadataBase: new URL("https://aleexnl.com"),
 		title: t("title"),
 		description: t("description"),
 		robots: "index, follow",
@@ -65,6 +62,15 @@ export async function generateMetadata({
 			},
 		},
 		openGraph: {
+			siteName: "Alejandro Nieto Luque",
+			images: [
+				{
+					url: `/${locale}/opengraph-image`,
+					width: 1200,
+					height: 630,
+					alt: t("title"),
+				},
+			],
 			type: "website",
 			locale:
 				({ en: "en_US", ca: "ca_ES", es: "es_ES" } as Record<string, string>)[
@@ -78,7 +84,13 @@ export async function generateMetadata({
 			description: t("description"),
 		},
 		twitter: {
-			card: "summary",
+			card: "summary_large_image",
+			images: [
+				{
+					url: `/${locale}/opengraph-image`,
+					alt: t("title"),
+				},
+			],
 			creator: "@aleexnl",
 			title: t("title"),
 			description: t("description"),
@@ -100,7 +112,6 @@ export default async function LocaleLayout({
 	const { locale } = await params;
 	if (!hasLocale(routing.locales, locale)) notFound();
 	setRequestLocale(locale);
-	const messages = await getMessages();
 	const tNav = await getTranslations({ locale, namespace: "nav" });
 
 	return (
@@ -109,11 +120,9 @@ export default async function LocaleLayout({
 				<a href="#main-content" className="skip-link">
 					{tNav("skipToContent")}
 				</a>
-				<NextIntlClientProvider messages={{ error: messages.error }}>
-					<Analytics />
-					<SpeedInsights />
-					{children}
-				</NextIntlClientProvider>
+				{process.env.VERCEL === "1" && <Analytics />}
+				{process.env.VERCEL === "1" && <SpeedInsights />}
+				{children}
 			</body>
 		</html>
 	);

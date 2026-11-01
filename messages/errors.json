@@ -1,0 +1,17 @@
+{
+	"en": {
+		"title": "Something went wrong",
+		"description": "Please try loading the page again.",
+		"retry": "Try again"
+	},
+	"es": {
+		"title": "Algo ha fallado",
+		"description": "Intenta cargar la página de nuevo.",
+		"retry": "Reintentar"
+	},
+	"ca": {
+		"title": "Alguna cosa ha fallat",
+		"description": "Torna a intentar carregar la pàgina.",
+		"retry": "Torna-ho a provar"
+	}
+}

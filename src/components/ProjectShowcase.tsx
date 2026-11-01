@@ -3,12 +3,12 @@ import { enrichProjects } from "../data/projects";
 import { getGithubRepos } from "../lib/github";
 import { Arrow } from "./Arrow";
 
-export async function ProjectShowcase({ limit }: { limit?: number }) {
+export async function ProjectShowcase() {
 	const [t, repositories] = await Promise.all([
 		getTranslations("portfolio.work"),
 		getGithubRepos(),
 	]);
-	const projects = enrichProjects(repositories).slice(0, limit);
+	const projects = enrichProjects(repositories);
 	return (
 		<div className="project-list">
 			{projects.map((project) => (
@@ -74,7 +74,7 @@ export async function ProjectShowcase({ limit }: { limit?: number }) {
 						</div>
 						<figcaption>
 							{t(project.kind)}
-							<span aria-hidden="true">{project.technologies[0]}</span>
+							<span>{project.language}</span>
 						</figcaption>
 					</figure>
 					<div className="project-details">

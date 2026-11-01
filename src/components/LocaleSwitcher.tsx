@@ -15,7 +15,7 @@ export async function LocaleSwitcher({ locale }: LocaleSwitcherProps) {
 				{locales.map((code) => (
 					<li key={code}>
 						<a
-							href={code === "en" ? "/" : `/${code}`}
+							href={`/${code}`}
 							hrefLang={code}
 							lang={code}
 							aria-label={names[code]}

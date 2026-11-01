@@ -32,5 +32,8 @@ export function enrichProjects(repositories: GithubRepo[]) {
 		source: `https://github.com/aleexnl/${project.repository}`,
 		stars: repositories.find((repo) => repo.name === project.repository)
 			?.stargazers_count,
+		language:
+			repositories.find((repo) => repo.name === project.repository)?.language ||
+			project.technologies[0],
 	}));
 }

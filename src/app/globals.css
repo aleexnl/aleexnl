@@ -174,6 +174,10 @@ section[id] {
 .menu-toggle {
 	display: none;
 }
+.recovery-page {
+	padding-block: var(--section-space);
+	text-align: center;
+}
 .hero {
 	padding-top: clamp(64px, 8vw, 120px);
 	padding-bottom: 90px;
@@ -412,7 +416,7 @@ h2 {
 	color: var(--muted);
 	max-width: 66ch;
 }
-.project-story > p + p {
+.project-story > :where(p + p) {
 	margin-top: 12px;
 }
 .technology-list {
@@ -741,8 +745,11 @@ h2 {
 	*,
 	*::before,
 	*::after {
+		/* biome-ignore lint/complexity/noImportantStyles: accessibility preference must override component motion */
 		animation: none !important;
+		/* biome-ignore lint/complexity/noImportantStyles: accessibility preference must override component motion */
 		transition: none !important;
+		/* biome-ignore lint/complexity/noImportantStyles: accessibility preference must override component motion */
 		scroll-behavior: auto !important;
 	}
 }
@@ -780,5 +787,387 @@ h2 {
 	}
 	.project + .project {
 		margin-top: 30px;
+	}
+}
+.experience-section {
+	border-top: 1px solid var(--border);
+}
+.experience-section :where(.section-heading) h2 {
+	max-width: 680px;
+}
+.career-chapter {
+	display: grid;
+	grid-template-columns: 160px 260px 1fr;
+	gap: 40px;
+	padding: 44px 0;
+	border-top: 1px solid var(--border);
+}
+.career-period p {
+	font-size: 12px;
+	line-height: 1.7;
+	color: var(--muted);
+}
+.career-period > span {
+	display: inline-flex;
+	gap: 7px;
+	align-items: center;
+	margin-top: 16px;
+	font-size: 10px;
+	color: var(--accent);
+}
+.career-period > span::before {
+	content: "";
+	width: 5px;
+	height: 5px;
+	background: currentColor;
+	border-radius: 50%;
+}
+.career-role h3 {
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: -0.04em;
+	line-height: 1.2;
+}
+.career-role p {
+	margin-top: 10px;
+	font-size: 14px;
+}
+.career-role > span {
+	display: block;
+	margin-top: 10px;
+	font-size: 11px;
+	color: var(--muted);
+	line-height: 1.7;
+}
+.career-responsibilities {
+	padding: 0;
+	list-style: none;
+	font-size: 14px;
+	color: var(--muted);
+	line-height: 1.8;
+}
+.career-responsibilities li {
+	position: relative;
+	padding-left: 18px;
+}
+.career-responsibilities li + li {
+	margin-top: 12px;
+}
+.career-responsibilities li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.8em;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: var(--muted);
+}
+.expertise-section {
+	background: var(--surface);
+	border-block: 1px solid var(--border);
+}
+.expertise-layout {
+	display: grid;
+	grid-template-columns: 1fr 1.05fr;
+	gap: 80px;
+}
+.expertise-intro h2 {
+	max-width: 440px;
+}
+.expertise-intro > p {
+	max-width: 340px;
+	margin-top: 28px;
+	font-size: 16px;
+	color: var(--muted);
+	line-height: 1.8;
+}
+.expertise-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 44px 36px;
+}
+.expertise-area {
+	padding-top: 24px;
+	border-top: 1px solid var(--border);
+}
+.expertise-area h3 {
+	font-size: 18px;
+	letter-spacing: -0.025em;
+	font-weight: 600;
+}
+.expertise-area p {
+	margin-top: 16px;
+	font-size: 14px;
+	line-height: 1.8;
+	color: var(--muted);
+}
+.expertise-area > span {
+	display: block;
+	margin-top: 20px;
+	font-size: 11px;
+	line-height: 1.8;
+}
+.about-intro {
+	display: grid;
+	grid-template-columns: 1fr 1.05fr;
+	gap: 80px;
+}
+.about-intro h2 {
+	max-width: 480px;
+}
+.about-intro p {
+	font-size: 14px;
+	line-height: 1.9;
+	color: var(--muted);
+}
+.about-intro .about-lead {
+	font-size: 20px;
+	color: var(--foreground);
+	line-height: 1.65;
+	margin-bottom: 24px;
+}
+.about-foundations {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	gap: 100px;
+	padding-top: 80px;
+}
+.about-foundations h3 {
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: -0.025em;
+	margin-bottom: 28px;
+}
+.education-item {
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	gap: 24px;
+	padding: 20px 0;
+	border-top: 1px solid var(--border);
+}
+.education-period {
+	color: var(--muted);
+	font-size: 11px;
+	padding-top: 3px;
+}
+.education-item h4 {
+	font-size: 14px;
+	line-height: 1.7;
+	font-weight: 500;
+}
+.education-item :where(div) > p {
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.7;
+	margin-top: 6px;
+}
+.languages dl > div {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 20px 0;
+	border-top: 1px solid var(--border);
+	font-size: 13px;
+}
+.languages dd {
+	color: var(--muted);
+}
+.contact-section {
+	background: #202d4c;
+	color: #f1f4fb;
+}
+.contact-section .section-kicker {
+	color: #b9c8ff;
+	margin-bottom: 32px;
+}
+.contact-section h2 {
+	max-width: 1050px;
+	font-size: clamp(44px, 7vw, 98px);
+	letter-spacing: -0.055em;
+}
+.contact-bottom {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 100px;
+	align-items: start;
+	margin-top: 64px;
+}
+.contact-bottom > p {
+	font-size: 18px;
+	color: #bdc8e0;
+	line-height: 1.8;
+	max-width: 380px;
+}
+.contact-link {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0;
+	border-bottom: 1px solid #63718e;
+	font-size: 20px;
+}
+.contact-link:first-child {
+	border-top: 1px solid #63718e;
+}
+.contact-section :focus-visible {
+	outline-color: #b9c8ff;
+}
+.site-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
+	padding-block: 28px;
+	color: var(--muted);
+	font-size: 10px;
+}
+.site-footer .text-link {
+	font-size: 11px;
+}
+.no-script-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding-block: 16px;
+	border-bottom: 1px solid var(--border);
+}
+.no-script-nav a {
+	min-height: 44px;
+	display: flex;
+	align-items: center;
+}
+@media (max-width: 1000px) {
+	.career-chapter {
+		grid-template-columns: 130px 200px 1fr;
+		gap: 24px;
+	}
+	.expertise-layout,
+	.about-intro {
+		gap: 40px;
+	}
+	.about-foundations {
+		gap: 60px;
+	}
+	.expertise-list {
+		gap: 36px 24px;
+	}
+}
+@media (max-width: 680px) {
+	.header-inner {
+		gap: 12px;
+	}
+	.header-controls {
+		gap: 6px;
+	}
+	.locale-nav a {
+		min-width: 44px;
+	}
+	.career-chapter {
+		grid-template-columns: 1fr;
+		gap: 20px;
+		padding: 32px 0;
+	}
+	.career-period {
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+		align-items: center;
+	}
+	.career-period > span {
+		margin: 0;
+	}
+	.career-role h3 {
+		font-size: 28px;
+	}
+	.career-role p {
+		margin-top: 7px;
+	}
+	.career-responsibilities {
+		margin-top: 4px;
+	}
+	.expertise-layout,
+	.about-intro,
+	.about-foundations,
+	.contact-bottom {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+	.expertise-intro h2,
+	.about-intro h2 {
+		max-width: 380px;
+	}
+	.expertise-intro > p {
+		margin-top: 24px;
+	}
+	.expertise-list {
+		gap: 32px;
+	}
+	.expertise-area h3 {
+		font-size: 16px;
+	}
+	.expertise-area p {
+		font-size: 13px;
+	}
+	.about-intro .about-lead {
+		font-size: 18px;
+	}
+	.about-foundations {
+		padding-top: 56px;
+		gap: 56px;
+	}
+	.education-item {
+		grid-template-columns: 75px 1fr;
+		gap: 16px;
+	}
+	.contact-bottom {
+		margin-top: 36px;
+		gap: 32px;
+	}
+	.contact-bottom > p {
+		font-size: 16px;
+	}
+	.contact-link {
+		font-size: 18px;
+	}
+	.site-footer {
+		flex-wrap: wrap;
+		padding-block: 24px;
+		gap: 16px;
+	}
+	.site-footer > p {
+		flex-basis: 100%;
+	}
+	.site-footer > a {
+		margin-left: auto;
+	}
+}
+@media (max-width: 360px) {
+	.expertise-list {
+		grid-template-columns: 1fr;
+	}
+	.hero-actions {
+		gap: 12px;
+	}
+	.button {
+		padding: 16px;
+		gap: 20px;
+	}
+}
+@media print {
+	.expertise-section,
+	.contact-section {
+		background: white;
+		color: black;
+	}
+	.contact-section .section-kicker,
+	.contact-bottom > p {
+		color: #444;
+	}
+	.career-chapter {
+		break-inside: avoid;
+	}
+	.site-footer {
+		padding-block: 16px;
 	}
 }
