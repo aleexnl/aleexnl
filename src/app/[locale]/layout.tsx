@@ -2,21 +2,22 @@ import "../globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
-import { Roboto } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { Manrope } from "next/font/google";
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "../../i18n/routing";
 
-const roboto = Roboto({
+const manrope = Manrope({
 	subsets: ["latin"],
 	display: "swap",
-	variable: "--font-roboto",
+	variable: "--font-manrope",
 });
 
 export const viewport: Viewport = {
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+		{ media: "(prefers-color-scheme: light)", color: "#f5f6f8" },
+		{ media: "(prefers-color-scheme: dark)", color: "#13171c" },
 	],
 	width: "device-width",
 	initialScale: 1,
@@ -28,15 +29,18 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
+	if (!hasLocale(routing.locales, locale)) notFound();
+	setRequestLocale(locale);
 	const t = await getTranslations({ locale, namespace: "meta" });
 	return {
+		metadataBase: new URL("https://aleexnl.com"),
 		title: t("title"),
 		description: t("description"),
 		robots: "index, follow",
 		icons: {
 			icon: [
 				{ url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-				{ url: "/favicon.svg", type: "image/svg+xml" },
+				{ url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
 			],
 			shortcut: "/favicon.ico",
 			apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
@@ -58,6 +62,15 @@ export async function generateMetadata({
 			},
 		},
 		openGraph: {
+			siteName: "Alejandro Nieto Luque",
+			images: [
+				{
+					url: `/${locale}/opengraph-image`,
+					width: 1200,
+					height: 630,
+					alt: t("title"),
+				},
+			],
 			type: "website",
 			locale:
 				({ en: "en_US", ca: "ca_ES", es: "es_ES" } as Record<string, string>)[
@@ -71,7 +84,13 @@ export async function generateMetadata({
 			description: t("description"),
 		},
 		twitter: {
-			card: "summary",
+			card: "summary_large_image",
+			images: [
+				{
+					url: `/${locale}/opengraph-image`,
+					alt: t("title"),
+				},
+			],
 			creator: "@aleexnl",
 			title: t("title"),
 			description: t("description"),
@@ -91,23 +110,19 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const messages = await getMessages();
+	if (!hasLocale(routing.locales, locale)) notFound();
+	setRequestLocale(locale);
 	const tNav = await getTranslations({ locale, namespace: "nav" });
 
 	return (
-		<html lang={locale} className={roboto.variable}>
+		<html lang={locale} className={manrope.variable}>
 			<body>
-				<a
-					href="#main-content"
-					className="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:z-50"
-				>
+				<a href="#main-content" className="skip-link">
 					{tNav("skipToContent")}
 				</a>
-				<NextIntlClientProvider messages={messages}>
-					<Analytics />
-					<SpeedInsights />
-					<div id="main-content">{children}</div>
-				</NextIntlClientProvider>
+				{process.env.VERCEL === "1" && <Analytics />}
+				{process.env.VERCEL === "1" && <SpeedInsights />}
+				{children}
 			</body>
 		</html>
 	);

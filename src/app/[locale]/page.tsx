@@ -1,32 +1,18 @@
-import { getTranslations } from "next-intl/server";
-import { Suspense } from "react";
-import { Card } from "../../components/Card";
-import { Connect } from "../../components/Connect";
-import { Education } from "../../components/Education";
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { About } from "../../components/About";
+import { Arrow } from "../../components/Arrow";
+import { Contact } from "../../components/Contact";
 import { Experience } from "../../components/Experience";
-import { GithubProjects } from "../../components/GithubProjects";
-import { Languages } from "../../components/Languages";
+import { Expertise } from "../../components/Expertise";
 import { LocaleSwitcher } from "../../components/LocaleSwitcher";
-import { Skills } from "../../components/Skills";
-import { connectItems, skillItems } from "../../data/static-data";
+import { Navigation } from "../../components/Navigation";
+import { ProjectShowcase } from "../../components/ProjectShowcase";
+import { routing } from "../../i18n/routing";
 import { LocaleDataSchema } from "../../schemas/locale";
 
 export const revalidate = 86400;
-
-async function getLocaleData(locale: string) {
-	const messages: unknown = (await import(`../../../messages/${locale}.json`))
-		.default;
-	const parsed = LocaleDataSchema.safeParse(messages);
-	if (!parsed.success) {
-		console.error("Locale data validation failed:", parsed.error);
-		return { experience: [], education: [], languages: [] };
-	}
-	return {
-		experience: parsed.data.experience.items,
-		education: parsed.data.education.items,
-		languages: parsed.data.languages.items,
-	};
-}
 
 export default async function Home({
 	params,
@@ -34,108 +20,143 @@ export default async function Home({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	const [t, tSections, localeData] = await Promise.all([
+	if (!hasLocale(routing.locales, locale)) notFound();
+	setRequestLocale(locale);
+	const [t, home, messages] = await Promise.all([
+		getTranslations("portfolio"),
 		getTranslations("home"),
-		getTranslations("sections"),
-		getLocaleData(locale),
+		import(`../../../messages/${locale}.json`).then((m) => m.default),
 	]);
-
-	const currentYear = new Date().getFullYear();
-
+	const data = LocaleDataSchema.parse(messages);
+	const url =
+		locale === "en" ? "https://aleexnl.com/" : `https://aleexnl.com/${locale}`;
 	const jsonLd = {
 		"@context": "https://schema.org",
-		"@type": "Person",
-		name: "Alejandro Nieto Luque",
-		jobTitle: t("tagline"),
-		url:
-			locale === "en"
-				? "https://aleexnl.com/"
-				: `https://aleexnl.com/${locale}`,
-		sameAs: [
-			"https://www.linkedin.com/in/alejandro-nieto-luque/",
-			"https://github.com/aleexnl",
+		"@graph": [
+			{
+				"@type": "Person",
+				"@id": "https://aleexnl.com/#person",
+				name: "Alejandro Nieto Luque",
+				jobTitle: t("hero.discipline"),
+				url,
+				sameAs: [
+					"https://github.com/aleexnl",
+					"https://www.linkedin.com/in/alejandro-nieto-luque/",
+				],
+				knowsLanguage: ["Spanish", "Catalan", "English"],
+				alumniOf: data.education.items.map((edu) => ({
+					"@type": "EducationalOrganization",
+					name: edu.institution,
+				})),
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://aleexnl.com/#website",
+				url,
+				name: "Alejandro Nieto Luque",
+				inLanguage: locale,
+				author: { "@id": "https://aleexnl.com/#person" },
+			},
 		],
-		knowsLanguage: ["Spanish", "Catalan", "English"],
-		alumniOf: localeData.education.map((edu) => ({
-			"@type": "EducationalOrganization",
-			name: edu.institution,
-		})),
 	};
-
 	return (
 		<>
 			<script
 				type="application/ld+json"
-				// biome-ignore lint/security/noDangerouslySetInnerHtml: structured data
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: static validated content, escaped for HTML
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+				}}
 			/>
-			<main className="max-w-3xl mx-auto px-6 py-16">
-				<header className="mb-16">
-					<div className="flex items-start justify-between gap-4">
-						<div>
-							<h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-								Alejandro Nieto Luque
-							</h1>
-							<p className="text-lg text-gray-500 dark:text-gray-400 mt-1">
-								{t("tagline")}
-							</p>
+			<Navigation
+				items={["work", "experience", "about", "contact"].map((id) => ({
+					id,
+					label: t(`nav.${id}`),
+				}))}
+				label={t("nav.primary")}
+				menuLabel={t("nav.menu")}
+				closeLabel={t("nav.close")}
+			>
+				<LocaleSwitcher locale={locale} />
+			</Navigation>
+			<noscript>
+				<nav className="shell no-script-nav" aria-label={t("nav.primary")}>
+					{["work", "experience", "about", "contact"].map((id) => (
+						<a key={id} href={`#${id}`}>
+							{t(`nav.${id}`)}
+						</a>
+					))}
+				</nav>
+			</noscript>
+			<main id="main-content" tabIndex={-1}>
+				<section className="hero shell" id="top" aria-labelledby="hero-heading">
+					<div className="hero-identity">
+						<span className="identity-dot" aria-hidden="true" />
+						<p>Alejandro Nieto Luque</p>
+						<span className="hero-discipline">{t("hero.discipline")}</span>
+					</div>
+					<h1 id="hero-heading">
+						<span className="sr-only">Alejandro Nieto Luque. </span>
+						{t("hero.headline")}
+						<br />
+						{t("hero.headlineEnd")}
+					</h1>
+					<div className="hero-bottom">
+						<div className="hero-aside">
+							<p>{t("hero.stack")}</p>
+							<span>{t("hero.note")}</span>
 						</div>
-						<LocaleSwitcher locale={locale} />
-					</div>
-					<div className="mt-8">
-						<Suspense fallback={<GithubProjectsSkeleton />}>
-							<GithubProjects
-								title={tSections("featuredProjects")}
-								emptyLabel={tSections("noProjects")}
-							/>
-						</Suspense>
-					</div>
-				</header>
-
-				<section className="grid grid-cols-1 md:grid-cols-3 gap-12">
-					<div className="md:col-span-2 space-y-12">
-						<Experience items={localeData.experience} />
-						<Education
-							items={localeData.education}
-							title={tSections("education")}
-						/>
-					</div>
-
-					<div className="space-y-10">
-						<Connect items={connectItems} title={tSections("connect")} />
-						<Skills items={skillItems} title={tSections("skills")} />
-						<Languages
-							items={localeData.languages}
-							title={tSections("languages")}
-						/>
-
-						<Card title={tSections("personalStatement")}>
-							<p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-								{t("personalStatement")}
-							</p>
-						</Card>
+						<div className="hero-intro">
+							<p>{t("hero.intro")}</p>
+							<div className="hero-actions">
+								<a className="button" href="#work">
+									{t("hero.work")}
+									<Arrow />
+								</a>
+								<a className="text-link" href="#contact">
+									{t("hero.contact")}
+									<Arrow diagonal />
+								</a>
+							</div>
+						</div>
 					</div>
 				</section>
-
-				<footer className="mt-16 text-center text-gray-400 text-sm pb-8">
-					<p>© {currentYear} Alejandro Nieto Luque</p>
-				</footer>
+				<section
+					className="work-section shell section-space"
+					id="work"
+					aria-labelledby="work-heading"
+				>
+					<div className="section-heading">
+						<div>
+							<p className="section-kicker">{t("nav.work")}</p>
+							<h2 id="work-heading">{t("work.title")}</h2>
+						</div>
+						<p>{t("work.intro")}</p>
+					</div>
+					<ProjectShowcase />
+					<a
+						className="text-link repository-link"
+						href="https://github.com/aleexnl?tab=repositories"
+					>
+						{t("work.all")}
+						<Arrow diagonal />
+					</a>
+				</section>
+				<section
+					className="shell section-space experience-section"
+					id="experience"
+					aria-labelledby="experience-heading"
+				>
+					<Experience items={data.experience.items} />
+				</section>
+				<Expertise />
+				<About
+					education={data.education.items}
+					languages={data.languages.items}
+					statement={home("personalStatement")}
+				/>
+				<Contact />
 			</main>
 		</>
-	);
-}
-
-function GithubProjectsSkeleton() {
-	return (
-		<div className="rounded-xl border border-gray-100 dark:border-gray-800 p-5">
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{["a", "b", "c", "d", "e", "f"].map((id) => (
-					<div
-						key={`project-skeleton-${id}`}
-						className="h-24 rounded-lg border border-gray-100 dark:border-gray-800 animate-pulse bg-gray-50 dark:bg-gray-900"
-					/>
-				))}
-			</div>
-		</div>
 	);
 }

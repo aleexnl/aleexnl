@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function NotFound() {
 	const t = await getTranslations("notFound");
+	const locale = await getLocale();
 
 	return (
-		<main className="max-w-3xl mx-auto px-6 py-16 text-center">
+		<main id="main-content" tabIndex={-1} className="shell recovery-page">
 			<h1 className="text-6xl font-bold text-gray-900 dark:text-white mb-4">
 				404
 			</h1>
@@ -15,12 +15,12 @@ export default async function NotFound() {
 			<p className="text-gray-500 dark:text-gray-400 mb-8">
 				{t("description")}
 			</p>
-			<Link
-				href="/"
+			<a
+				href={`/${locale}`}
 				className="text-gray-900 dark:text-white font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
 			>
 				{t("backHome")}
-			</Link>
+			</a>
 		</main>
 	);
 }

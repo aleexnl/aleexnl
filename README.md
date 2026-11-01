@@ -28,9 +28,31 @@ I'm a dedicated **Frontend Developer** specializing in **Android native apps**, 
 
 ## 🛠️ My Current Tech Stack
 
-| Category | Technologies |
-| :--- | :--- |
-| **Mobile Frontend** | <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-0095D5.svg?style=for-the-badge&logo=kotlin&logoColor=white"/> <img alt="Android" src="https://img.shields.io/badge/Android-3DDC84.svg?style=for-the-badge&logo=android&logoColor=black"/> |
-| **Learning/Expanding** | <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138.svg?style=for-the-badge&logo=swift&logoColor=white"/> <img alt="iOS" src="https://img.shields.io/badge/iOS-000000.svg?style=for-the-badge&logo=ios&logoColor=white"/> |
-| **Backend** | <img alt=".NET Core" src="https://img.shields.io/badge/.NET%20Core-512BD4.svg?style=for-the-badge&logo=dotnet&logoColor=white"/> <img alt="C#" src="https://img.shields.io/badge/C%23-239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white"/> |
-| **Tools** | <img alt="Git" src="https://img.shields.io/badge/Git-F05032.svg?style=for-the-badge&logo=git&logoColor=white"/> <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white"/> <img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/> |
+| Category               | Technologies                                                                                                                                                                                                                                                                                                                                                                      |
+| :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Mobile Frontend**    | <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-0095D5.svg?style=for-the-badge&logo=kotlin&logoColor=white"/> <img alt="Android" src="https://img.shields.io/badge/Android-3DDC84.svg?style=for-the-badge&logo=android&logoColor=black"/>                                                                                                                              |
+| **Learning/Expanding** | <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138.svg?style=for-the-badge&logo=swift&logoColor=white"/> <img alt="iOS" src="https://img.shields.io/badge/iOS-000000.svg?style=for-the-badge&logo=ios&logoColor=white"/>                                                                                                                                             |
+| **Backend**            | <img alt=".NET Core" src="https://img.shields.io/badge/.NET%20Core-512BD4.svg?style=for-the-badge&logo=dotnet&logoColor=white"/> <img alt="C#" src="https://img.shields.io/badge/C%23-239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white"/>                                                                                                                              |
+| **Tools**              | <img alt="Git" src="https://img.shields.io/badge/Git-F05032.svg?style=for-the-badge&logo=git&logoColor=white"/> <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white"/> <img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/> |
+
+## Portfolio development
+
+Use the pinned Yarn version through Corepack. Install with `yarn install --immutable`.
+
+- `yarn dev`: local development.
+- `yarn test`: content and GitHub fallback regression tests.
+- `yarn exec tsc --noEmit`: strict type checking.
+- `yarn build`: production build and static locale generation.
+- `yarn test:e2e`: production browser tests (run the build first).
+- `yarn lint`: Biome checks with automatic fixes.
+
+Featured selection and order live in `src/data/projects.ts`. Editorial copy,
+career, education and language content live in `messages/{en,es,ca}.json`.
+`messages/errors.json` contains the small client error dictionary. GitHub enriches
+project languages; the curated narrative survives API outages. Project figures
+are diagrams, not product screenshots.
+
+Design decisions, baseline, measured results and remaining verification limits
+are recorded in [docs/redesign.md](docs/redesign.md). Local screenshots and audit
+reports are written to the Git-ignored `artifacts/` directory. Vercel analytics
+remain enabled on Vercel deployments; local servers omit collection scripts.
